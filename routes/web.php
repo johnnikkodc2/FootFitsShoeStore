@@ -1,17 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FootFitsController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,3 +17,15 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+Route::get('/', [FootFitsController::class, 'index'])->name('index');
+Route::get('/about', [FootFitsController::class, 'aboutus'])->name('about');
+Route::get('/login', [FootFitsController::class, 'login'])->name('login');
+Route::get('/bestseller', [FootFitsController::class, 'bestSeller'])->name('bestSeller');
+Route::get('/manage-account', [FootFitsController::class, 'manageAccount'])->name('manageAccount');
+Route::get('/manage-customers', [FootFitsController::class, 'manageCustomers'])->name('manageCustomers');
+Route::get('/manage-orders', [FootFitsController::class, 'manageOrders'])->name('manageOrders');
+Route::get('/manage-products', [FootFitsController::class, 'manageProducts'])->name('manageProducts');
+Route::get('/manage-product-list', [FootFitsController::class, 'manageProductList'])->name('manageProductList');
+Route::get('/order', [FootFitsController::class, 'order'])->name('order');
+Route::get('/register', [FootFitsController::class, 'register'])->name('register');
+Route::get('/shop', [FootFitsController::class, 'shop'])->name('shop');
