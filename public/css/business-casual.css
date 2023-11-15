@@ -11,7 +11,7 @@ body {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-	background-color: black;
+	background-color: rgb(178, 57, 212);
 }
 
 .modal

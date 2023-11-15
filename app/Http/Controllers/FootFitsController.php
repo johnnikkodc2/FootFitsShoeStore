@@ -22,10 +22,15 @@ class FootFitsController extends Controller
     {
         return view('/user/bestSeller');
     }
+    function shop()
+    {
+        return view('/user/shop');
+    }
     function manageAccount()
     {
         return view('/admin/manageAccount');
     }
+
     function manageCustomers()
     {
         return view('/admin/manageCustomers');
@@ -37,6 +42,10 @@ class FootFitsController extends Controller
     function manageProducts()
     {
         return view('/admin/manageProducts');
+    }
+    function editProducts()
+    {
+        return view('/admin/editProducts');
     }
     function manageProductList()
     {
@@ -50,9 +59,6 @@ class FootFitsController extends Controller
     {
         return view('register');
     }
-    function shop()
-    {
-        return view('shop');
-    }
+
 
 }

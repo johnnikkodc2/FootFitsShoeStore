@@ -79,37 +79,11 @@
 					<hr>
 					<h2 class="intro-text text-center"><strong>BEST</strong>sellers</h2>
 					<hr>
-				</div><br></br>
+				</div><br>
 			</div>
 		</div>
 
-		<?php
-		$num = 5;
-		require 'Connection.php';
-		$sql = "SELECT * FROM `tbl_products` Limit 5";
-		$Resulta = mysqli_query($Conn, $sql);
-		while ($Rows = mysqli_fetch_array($Resulta)) {
-			echo '	
-						<div class="row">
-							<div class="box" style="border-radius: 10px;">
-								<div class="col-lg-12">
-									<hr>
-									<h2 class="intro-text text-center">Top ' . $num . '</h2>
-									<hr>
-									<img class="img-responsive img-border img-left" src="data:image;base64,' . $Rows[8] . '" alt="">
-									<hr class="visible-xs">
-									<p><strong>Product Name:</strong> ' . $Rows[1] . '</p>
-									<p><strong>Product Brand:</strong> ' . $Rows[2] . '</p>
-									<p><strong>Size Available:</strong> ' . $Rows[3] . '</p>
-									<p><strong>Colors Available:</strong> ' . $Rows[4] . '</p>
-									<p><b>Price</b> 2999</p>
-									<a onclick="addToCartOnclick(' . $Rows[0] . ');" href="#"  style="margin-bottom: 5px;" class="btn btn-primary">Add to Cart</a>
-								</div>
-							</div>
-						</div>';
-			$num--;
-		}
-		?>
+		
 	</div>
 
 

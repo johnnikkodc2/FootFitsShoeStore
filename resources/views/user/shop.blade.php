@@ -51,50 +51,29 @@
                 <a class="navbar-brand" href="index.html">FootFits</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="bestseller.php">Best Sellers</a></li>
-                    <li><a href="shop.php">Shop</a></li>
-                    <li><a href="about.php">About</a></li>
-                    <li><a href="#" onclick="ManagementOnclick();">Management</a></li>
-                    <?php if ($Username == null) {
-                        echo '<li><a href="register.php?ActionType=Register">Register</a></li>';
-                    } ?>
-                    <?php if ($Username == null) {
-                        echo '<li><a href="Login.php?Role=User">Login</a></li>';
-                    } else {
-                        echo '<li><a href="Logout.php">Logout</a></li>';
-                    } ?>
-                </ul>
-            </div>
+				<ul class="nav navbar-nav">
+					<li><a href="index.php">Home</a></li>
+					<li><a href="bestseller.php">Best Sellers</a></li>
+					<li><a href="shop.php">Shop</a></li>
+					<li><a href="about.php">About</a></li>
+					<li><a href="#" onclick="ManagementOnclick();">Management</a></li>
+					<?php if ($Username == null) {
+						echo '<li><a href="register.php?ActionType=Register">Register</a></li>';
+					} ?>
+					<?php if ($Username == null) {
+						echo '<li><a href="Login.php?Role=User">Login</a></li>';
+					} else {
+						echo '<li><a href="Logout.php">Logout</a></li>';
+					} ?>
+				</ul>
+			</div>
         </div>
     </nav>
 
     <div class="container">
-        <?php
-        $conn = mysqli_connect("localhost", "root", "", "smss_db");
-        $sql = "SELECT * FROM `tbl_products` order by ProductPrice";
-        $Resulta = mysqli_query($conn, $sql);
-        ?>
+        
 
-
-        <?php while ($Rows = mysqli_fetch_array($Resulta)) {
-            echo '	
-		<div class="col-sm-4 col-lg-4 col-md-4">
-             <div class="thumbnail">
-				<h4 style="text-align: center;">' . $Rows[2] . '</h4>
-                <img style="border: 2px solid gray; border-radius: 10px; height: 229px; width: 298px;" src="data:image;base64,' . $Rows[8] . '" alt="">
-                <div class="caption">
-					<p><strong>Product Name:</strong> ' . $Rows[1] . '</p>
-					<p><strong>Size Available:</strong> ' . $Rows[3] . '</p>
-					<p><strong>Colors Available:</strong> ' . $Rows[4] . '</p>
-					<p><strong>P ' . $Rows[5] . '.00</strong></p>
-                </div>
-				<center><a onclick="addToCartOnclick(' . $Rows[0] . ');" href="#"  style="margin-bottom: 5px;" class="btn btn-primary">Add to Cart</a></center>
-            </div>
-        </div>
-		';
-        } ?>
+    
 
     </div>
 

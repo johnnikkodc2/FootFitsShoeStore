@@ -53,17 +53,10 @@
                 <ul class="nav navbar-nav">
                     <li><a href="/index">Home</a></li>
                     <li><a href="bestseller">Best Sellers</a></li>
-                    <li><a href="shop.php">Shop</a></li>
-                    <li><a href="about.php">About</a></li>
+                    <li><a href="shop">Shop</a></li>
+                    <li><a href="about">About</a></li>
                     <li><a href="#" onclick="ManagementOnclick();">Management</a></li>
-                    <?php if ($Username == null) {
-                        echo '<li><a href="register.php?ActionType=Register">Register</a></li>';
-                    } ?>
-                    <?php if ($Username == null) {
-                        echo '<li><a href="Login.php?Role=User">Login</a></li>';
-                    } else {
-                        echo '<li><a href="Logout.php">Logout</a></li>';
-                    } ?>
+                    <li><a href="login">Login</a></li>
                 </ul>
             </div>
         </div>
