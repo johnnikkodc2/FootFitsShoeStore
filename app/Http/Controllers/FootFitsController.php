@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class FootFitsController extends Controller
 {
@@ -30,7 +31,7 @@ class FootFitsController extends Controller
     {
         return view('/user/shop');
     }
-    function adminIndex()
+    function admin()
     {
         return view('/admin/admin');
     }
@@ -41,7 +42,9 @@ class FootFitsController extends Controller
 
     function manageCustomers()
     {
-        return view('/admin/manageCustomers');
+        $users = User::all();
+        return view('/admin/manageCustomers', compact('users'));
+
     }
     function manageOrders()
     {

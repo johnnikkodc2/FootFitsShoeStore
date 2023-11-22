@@ -28,15 +28,19 @@
 						<table border="5px" class="table">
 							<tr style="text-align: center; color: Black; font-weight: bold;">
 								<td>Customer ID</td>
-								<td>UserName</td>
-								<td>Password</td>
-								<td>Firstname</td>
-								<td>Middlename</td>
-								<td>Lastname</td>
-								<td>Address</td>
-								<td>Email Address</td>
-								<td>Action</td>
+								<td>Name</td>
+								<td>Email</td>
+								<td>Created At</td>
+	
 							</tr>
+							@foreach ($users as $user)
+							<tr>
+								<th scope="row">{{ $user->id }}</th>
+								<td>{{ $user->name }}</td>
+								<td>{{ $user->email }}</td>
+								<td>{{ $user->created_at }}</td>
+							</tr>
+							@endforeach
 						
 						
 						</table>
