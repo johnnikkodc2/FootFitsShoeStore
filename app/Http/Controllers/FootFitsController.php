@@ -10,13 +10,17 @@ class FootFitsController extends Controller
     {
         return view('/user/index');
     }
-    function aboutus()
+    function about()
     {
         return view('/user/about');
     }
     function login()
     {
         return view('/user/login');
+    }
+    function register()
+    {
+        return view('/user/register');
     }
     function bestSeller()
     {
@@ -25,6 +29,10 @@ class FootFitsController extends Controller
     function shop()
     {
         return view('/user/shop');
+    }
+    function admin()
+    {
+        return view('/admin/index');
     }
     function manageAccount()
     {
@@ -41,7 +49,7 @@ class FootFitsController extends Controller
     }
     function manageProducts()
     {
-        return view('/admin/manageProducts');
+        return view('/admin/manageproducts');
     }
     function editProducts()
     {
@@ -51,14 +59,12 @@ class FootFitsController extends Controller
     {
         return view('manageProductList');
     }
+
     function order()
     {
         return view('order');
     }
-    function register()
-    {
-        return view('register');
-    }
+
 
 
 }

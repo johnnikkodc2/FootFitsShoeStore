@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-    @include('includes.header')
+    @include('includes.adminHeader')
 <head>
 
     <meta charset="utf-8">

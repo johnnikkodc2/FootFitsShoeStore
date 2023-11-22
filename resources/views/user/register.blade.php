@@ -1,88 +1,21 @@
-<?php
-session_start();
-$ActionType = $_GET['ActionType'];
-if ($ActionType == "Edit") {
-    $ID = $_GET['ID'];
-    $Loc = $_GET['Loc'];
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
+    @include('includes.header')
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>
-        <?php if ($ActionType == "Register") {
-            echo "Register an Accout";
-        } else
-            echo "Edit Account Information"; ?>
-    </title>
-
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/business-casual.css" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
-        rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic"
-        rel="stylesheet" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <?php
-    $Username = null;
-    if (!empty($_SESSION["Username"])) {
-        $Username = $_SESSION["Username"];
-    }
-    ?>
+    <title>Register</title>
+    <!-- Add your CSS links here -->
 </head>
 
-<body  style="background:purple">
-    <img src="img/logo.png"
-        style="height:150px;width:150px;display: block; margin-left: auto; margin-right: auto;margin-bottom:0px">
-    <div class="brand">FootFits</div>
-    <div class="address-bar">Your Ultimate Destination for <strong>Stylish and Comfortable Footwear</strong></div>
+<body>
 
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">FootFits</a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="bestseller.php">Best Sellers</a></li>
-                    <li><a href="shop.php">Shop</a></li>
-                    <li><a href="about.php">About</a></li>
-                    <?php if ($Username == null) {
-                        echo '<li><a href="register.php?ActionType=Register">Register</a></li>';
-                    } ?>
-                    <?php if ($Username == null) {
-                        echo '<li><a href="Login.php?Role=User">Login</a></li>';
-                    } else {
-                        echo '<li><a href="Logout.php">Logout</a></li>';
-                    } ?>
-                </ul>
-            </div>
-        </div>
-    </nav>
+
+    <div class="mb-4">
+        <x-validation-errors class="mb-4" />
+    </div>
 
     <div class="container">
 
@@ -91,85 +24,78 @@ if ($ActionType == "Edit") {
                 <div class="col-lg-12">
                     <hr>
                     <h2 class="intro-text text-center">
-                        <?php if ($ActionType == "Register") {
-                            echo "Register";
-                        } else
-                            echo "Edit Account Information"; ?>
+
+                        Register
+
                     </h2>
                     <hr>
                     <div class="col-md-6">
-                        <form role="form"
-                            action="RegisterAction.php?ActionType=<?php echo $ActionType;
-                            if ($ActionType == "Edit") {
-                                echo "&Loc=" . $Loc . "&ID=" . $ID;
-                            } ?>"
-                            method="POST">
+    <form method="POST" action="{{ route('register') }}">
+        @csrf
 
-                            <div class="form-group">
-                                <label for="username">Username:</label>
-                                <input type="text" name="Username" class="form-control" id="Username"
-                                    placeholder="Enter Username">
-                            </div>
+        <div class="form-group">
+            <x-label for="name" value="{{ __('Name') }}" />
+            <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+        </div>
 
-                            <div class="form-group">
-                                <label for="Password">Password:</label>
-                                <input type="Password" name="Password" class="form-control" id="Password"
-                                    placeholder="Enter Password">
-                            </div>
+        <div class="form-group">
+            <x-label for="email" value="{{ __('Email') }}" />
+            <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+        </div>
 
-                            <div class="form-group">
-                                <label for="Firstname">Firstname:</label>
-                                <input type="text" name="Firstname" class="form-control" id="Firstname"
-                                    placeholder="Enter Firstname">
-                            </div>
+        <div class="form-group">
+            <x-label for="password" value="{{ __('Password') }}" />
+            <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+        </div>
 
-                            <div class="form-group">
-                                <label for="Middlename">Middlename:</label>
-                                <input type="text" name="Middlename" class="form-control" id="Middlename"
-                                    placeholder="Enter Middlename">
-                            </div>
+        <div class="form-group">
+            <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
+            <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+        </div>
 
-                            <div class="form-group">
-                                <label for="Lastname">Lastname:</label>
-                                <input type="text" name="Lastname" class="form-control" id="Lastname"
-                                    placeholder="Enter Lastname">
-                            </div>
+        @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
+            <div class="mt-4">
+                <x-label for="terms">
+                    <div class="flex items-center">
+                        <x-checkbox name="terms" id="terms" required />
 
-                            <div class="form-group">
-                                <label for="Address">Address:</label>
-                                <input type="text" name="Address" class="form-control" id="Address"
-                                    placeholder="Enter Address">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="EmailAddress">Email Address:</label>
-                                <input type="email" name="EmailAddress" class="form-control" id="EmailAddress"
-                                    placeholder="Enter Email Address">
-                            </div>
-
-                            <button type="submit" class="btn btn-default">Submit</button><br><br>
-                        </form>
+                        <div class="ml-2">
+                            {!! __('I agree to the :terms_of_service and :privacy_policy', [
+                                'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Terms of Service').'</a>',
+                                'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Privacy Policy').'</a>',
+                            ]) !!}
+                        </div>
                     </div>
-                </div>
+                </x-label>
             </div>
+        @endif
+
+        <div class="flex items-center justify-end mt-4">
+            <x-button class="ml-4 btn btn-default">
+                {{ __('Register') }}
+            </x-button>
+            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
+                {{ __('Already registered?') }}
+            </a>
+
+           
         </div>
+    </form>
+</div>
+</div>
+</div>
+</div>
 
-    </div>
-    <!-- /.container -->
-
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <p>Copyright &copy; FootFits 2023</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+</div>
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script>
+        // Your existing JavaScript code here
+    </script>
 
 </body>
+<footer>
+    @include('includes.footer')
+</footer>
 
 </html>
