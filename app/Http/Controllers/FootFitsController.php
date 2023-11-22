@@ -32,7 +32,7 @@ class FootFitsController extends Controller
     }
     function adminIndex()
     {
-        return view('/admin/adminIndex');
+        return view('/admin/admin');
     }
     function manageAccount()
     {
