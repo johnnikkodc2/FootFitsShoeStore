@@ -99,6 +99,17 @@
 									<label for="product_category" class="form-label">Product Category</label>
 									<input type="text" class="form-control" name="product_category" id="product_category">
 								</div>
+								    <!-- Add file input for images -->
+    <!-- Add file input for images -->
+    <div class="mb-3">
+        <label for="product_images" class="form-label">Product Images (up to 6)</label>
+        <input type="file" class="form-control" name="product_images[]" id="product_images" multiple accept="image/*" onchange="handleFileSelect(this)">
+    </div>
+    <!-- Display selected file names in a dropdown with delete buttons -->
+    <div class="mb-3">
+        <label for="selected_images" class="form-label">Selected Images</label>
+        <select id="selected_images" name="selected_images[]" class="form-control" multiple readonly></select>
+    </div>
 								<button type="submit" class="btn btn-primary">Submit</button>
 							</form>
 						</div>
@@ -120,7 +131,38 @@
 			</div>
 		</div>
 	</footer>
+	<script>
+        function handleFileSelect(input) {
+            var selectedImages = document.getElementById('selected_images');
+            selectedImages.innerHTML = ''; // Clear the dropdown
 
+            if (input.files.length > 6) {
+                alert('You can only select up to 6 files.');
+                input.value = ''; // Clear the file input
+                return;
+            }
+
+            for (var i = 0; i < input.files.length; i++) {
+                var option = document.createElement('option');
+                option.text = input.files[i].name;
+
+                // Add a delete button
+                var deleteButton = document.createElement('button');
+                deleteButton.innerHTML = 'Delete';
+                deleteButton.className = 'btn btn-danger btn-sm mx-2';
+                deleteButton.type = 'button';
+
+                // Attach a click event to delete the option
+                deleteButton.addEventListener('click', function () {
+                    selectedImages.removeChild(option);
+                });
+
+                // Append the option and delete button to the dropdown
+                selectedImages.add(option);
+                selectedImages.appendChild(deleteButton);
+            }
+        }
+    </script>
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script>
