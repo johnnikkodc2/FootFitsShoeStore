@@ -20,15 +20,16 @@ Route::get('/about', [FootFitsController::class, 'about'])->name('about');
 Route::get('/login', [FootFitsController::class, 'login'])->name('login');
 Route::get('/register', [FootFitsController::class, 'register'])->name('register');
 Route::get('/bestseller', [FootFitsController::class, 'bestSeller'])->name('bestSeller');
-Route::get('/manageaccount', [FootFitsController::class, 'manageAccount'])->name('manageAccount');
-Route::get('/manageCustomers', [FootFitsController::class, 'manageCustomers'])->name('manageCustomers');
-Route::get('/manageOrders', [FootFitsController::class, 'manageOrders'])->name('manageOrders');
-Route::get('/admin', [FootFitsController::class, 'admin'])->name('admin');
-
-Route::get('/manageProductList', [FootFitsController::class, 'manageProductList'])->name('manageProductList');
 Route::get('/order', [FootFitsController::class, 'order'])->name('order');
 Route::get('/register', [FootFitsController::class, 'register'])->name('register');
 Route::get('/shop', [FootFitsController::class, 'shop'])->name('shop');
+
+Route::get('/adminIndex', [FootFitsController::class, 'adminIndex'])->name('adminIndex');
+Route::get('/adminLogin', [FootFitsController::class, 'adminLogin'])->name('adminLogin');
+Route::get('/manageaccount', [FootFitsController::class, 'manageAccount'])->name('manageAccount');
+Route::get('/manageCustomers', [FootFitsController::class, 'manageCustomers'])->name('manageCustomers');
+Route::get('/manageOrders', [FootFitsController::class, 'manageOrders'])->name('manageOrders');
+Route::get('/manageProductList', [FootFitsController::class, 'manageProductList'])->name('manageProductList');
 
 Route::get('/manageproducts', [ProductsController::class, 'index'])->name('AllProducts');
 Route::post('/manageproducts', [ProductsController::class, 'store'])->name('AllProducts');

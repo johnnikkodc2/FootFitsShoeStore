@@ -30,9 +30,9 @@ class FootFitsController extends Controller
     {
         return view('/user/shop');
     }
-    function admin()
+    function adminIndex()
     {
-        return view('/admin/index');
+        return view('/admin/adminIndex');
     }
     function manageAccount()
     {
@@ -63,6 +63,10 @@ class FootFitsController extends Controller
     function order()
     {
         return view('order');
+    }
+    function adminLogin()
+    {
+        return view('/admin/adminLogin');
     }
 
 

@@ -33,7 +33,7 @@
 			<div class="box">
 				<div class="col-lg-12">
 					<hr>
-					<h2 class="intro-text text-center">Products</h2>
+					<h2 class="intro-text text-center">Product List</h2>
 					<div class="card">
 						<table class="table table-striped">
 							<thead>
@@ -71,7 +71,8 @@
 
 					<div class="col-md-12">
 						<div class="card">
-							<h1>Add Product</h1>
+							<hr>
+							<h2 class="intro-text text-center">Add Product</h2>
 							<form method="POST" action="{{ route('AllProducts') }}" >
 								@csrf
 								<div class="mb-3">
