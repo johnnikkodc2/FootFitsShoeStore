@@ -45,7 +45,7 @@
 									<th>Product Size</th>
 									<th>Product Color</th>
 									<th>Product Category</th>
-									<th>Created At</th>
+									<th>Modify</th>
 								</tr>
 							</thead>
 							<tbody>

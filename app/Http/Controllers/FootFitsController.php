@@ -57,7 +57,7 @@ class FootFitsController extends Controller
     }
     function manageProductList()
     {
-        return view('manageProductList');
+        return view('/admin/manageProductList');
     }
 
     function order()
