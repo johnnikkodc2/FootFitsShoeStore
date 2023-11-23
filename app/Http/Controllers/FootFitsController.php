@@ -31,6 +31,14 @@ class FootFitsController extends Controller
     {
         return view('/user/shop');
     }
+    function productDetails()
+    {
+        return view('/user/productDetails');
+    }
+
+
+
+
     function admin()
     {
         return view('/admin/admin');

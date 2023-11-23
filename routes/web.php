@@ -24,6 +24,7 @@ Route::get('/bestseller', [FootFitsController::class, 'bestSeller'])->name('best
 Route::get('/order', [FootFitsController::class, 'order'])->name('order');
 Route::get('/register', [FootFitsController::class, 'register'])->name('register');
 Route::get('/shop', [FootFitsController::class, 'shop'])->name('shop');
+Route::get('/shop', [ProductsController::class, 'index2'])->name('shop');
 
 Route::get('/admin', [FootFitsController::class, 'admin'])->name('admin');
 Route::get('/adminLogin', [FootFitsController::class, 'adminLogin'])->name('adminLogin');
@@ -37,6 +38,7 @@ Route::post('/manageproducts', [ProductsController::class, 'store'])->name('AllP
 Route::get('/manageproducts/delete/{id}', [ProductsController::class, 'Delete'])->name('delete.category');
 Route::get('/editproducts/edit/{id}', [ProductsController::class, 'Edit']);
 Route::post('/editProducts/update/{id}', [ProductsController::class, 'Update'])->name('update.category');
+Route::get('/productDetails/details/{id}', [ProductsController::class, 'Details']);
 
 
-//Route::get('/manageproducts', [FootFitsController::class, 'manageProducts'])->name('manageProducts');
+

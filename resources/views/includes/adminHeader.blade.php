@@ -15,9 +15,10 @@
     <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
 </head>
 <body style="background:purple">
-    <img src="img/logo.png" style="height:150px;width:150px;display: block; margin-left: auto; margin-right: auto;margin-bottom:0px">
-    <div class="brand">FootFits</div>
+    <img src="{{ url('img/logo.png') }}" style="height:150px;width:150px;display: block; margin-left: auto; margin-right: auto;margin-bottom:0px">
+    <div class="brand">FootFits Admin</div>
     <div class="address-bar"> Your Ultimate Destination for <strong>Stylish and Comfortable Footwear</strong></div>
+
     <nav class="navbar navbar-default" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -31,10 +32,10 @@
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="admin">Home</a></li>
-					<li><a href="manageOrders">Orders</a></li>
-					<li><a href="manageproducts">Products</a></li>
-					<li><a href="manageCustomers">Customers</a></li>
+                    <li><a href="{{ url('admin') }}">Home</a></li>
+					<li><a href="{{ url('manageOrders') }}">Orders</a></li>
+					<li><a href="{{ url('manageproducts') }}">Products</a></li>
+					<li><a href="{{ url('manageCustomers') }}">Customers</a></li>
 
 
                     @auth

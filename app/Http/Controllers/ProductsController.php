@@ -12,8 +12,14 @@ class ProductsController extends Controller
         $products = Products::all();
         return view('admin.manageProducts', compact('products'));
     }
+    public function index2()
+    {
+        $products = Products::all();
+        return view('user.shop', compact('products'));
+    }
     public function store(Request $request)
     {
+
 
         Products::create([
             'product_name' => $request->input('product_name'),
@@ -32,10 +38,20 @@ class ProductsController extends Controller
         $products = Products::find($id);
         return view('admin.editProducts', compact('products'));
     }
+    public function Details($id)
+    {
+        $products = Products::find($id);
+        return view('user.productDetails', compact('products'));
+    }
     public function Update(Request $request, $id)
     {
         $update = Products::find($id)->update([
             'product_name' => $request->product_name,
+            'product_brand' => $request->product_brand,
+            'product_price' => $request->product_price,
+            'product_size' => $request->product_size,
+            'product_color' => $request->product_color,
+            'product_category' => $request->product_category,
 
         ]);
         return Redirect()->route('AllProducts')->with('success', 'Updated
