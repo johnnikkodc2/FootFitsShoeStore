@@ -47,6 +47,7 @@
                 @else
            
                     <li><a href="adminLogin">Login</a></li>
+                    <li><a href="adminRegister">Register</a></li>
                 @endauth
                 </ul>
             </div>

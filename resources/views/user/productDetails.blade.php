@@ -23,7 +23,7 @@
                         @if (!empty($products->product_images))
                             @foreach ($products->product_images as $index => $image)
                                 <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                                    <img src="{{ asset('path/to/your/images/' . $image) }}" class="d-block w-100" alt="Product Image {{ $index + 1 }}">
+                                    <img src="{{ asset('img/' . $image) }}" class="d-block w-100" alt="Product Image {{ $index + 1 }}">
                                 </div>
                             @endforeach
                         @else
@@ -31,12 +31,7 @@
                             <div class="carousel-item active">
                                 <img src="{{ asset('img/logo.png') }}" class="d-block w-100" alt="Alt Image 1">
                             </div>
-                            <div class="carousel-item">
-                                <img src="{{ asset('path/to/your/alt/image2.jpg') }}" class="d-block w-100" alt="Alt Image 2">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="{{ asset('path/to/your/alt/image3.jpg') }}" class="d-block w-100" alt="Alt Image 3">
-                            </div>
+                            
                         @endif
                     </div>
                     <a class="carousel-control-prev" href="#productImageCarousel" role="button" data-slide="prev">

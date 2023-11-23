@@ -73,7 +73,7 @@
 						<div class="card">
 							<hr>
 							<h2 class="intro-text text-center">Add Product</h2>
-							<form method="POST" action="{{ route('AllProducts') }}" >
+							<form method="POST" action="{{ route('AllProducts') }}" enctype="multipart/form-data">
 								@csrf
 								<div class="mb-3">
 									<label for="product_name" class="form-label">Product Name</label>

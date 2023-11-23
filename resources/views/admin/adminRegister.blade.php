@@ -26,7 +26,7 @@
 
                 <div class="col-lg-12">
                     <hr>
-                    <h2 class="intro-text text-center">Admin Login</h2>
+                    <h2 class="intro-text text-center">Admin Register</h2>
                     <hr>
                 </div>
 

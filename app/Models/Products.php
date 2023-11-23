@@ -18,6 +18,10 @@ class Products extends Model
         'product_size',
         'product_color',
         'product_category',
+        'product_images',
+    ];
+    protected $casts = [
+        'product_images' => 'array',
     ];
     public function products()
     {

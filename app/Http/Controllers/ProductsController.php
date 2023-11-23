@@ -19,6 +19,20 @@ class ProductsController extends Controller
     }
     public function store(Request $request)
     {
+        $request->validate([
+            // Your existing validation rules
+
+            // Add validation for images
+            'product_images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        if ($request->hasFile('product_images')) {
+            $images = [];
+            foreach ($request->file('product_images') as $image) {
+                $imageName = time() . '_' . $image->getClientOriginalName();
+                $image->move(public_path('img'), $imageName);
+                $images[] = $imageName;
+            }
+        }
 
 
         Products::create([
@@ -28,6 +42,7 @@ class ProductsController extends Controller
             'product_size' => $request->input('product_size'),
             'product_color' => $request->input('product_color'),
             'product_category' => $request->input('product_category'),
+            'product_images' => $images,
 
         ]);
 

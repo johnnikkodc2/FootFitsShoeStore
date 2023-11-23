@@ -80,6 +80,11 @@ class FootFitsController extends Controller
         return view('/admin/adminLogin');
     }
 
+    function adminRegister()
+    {
+        return view('/admin/adminRegister');
+    }
+
 
 
 }

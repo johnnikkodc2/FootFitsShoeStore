@@ -32,11 +32,11 @@
         <div class="col-sm-4 col-lg-4 col-md-4">
             <div class="thumbnail" onclick="redirectToDetails({{ $product->id }})">
                 <h4 style="text-align: center;">{{ $product->product_brand }}</h4>
-                <img style="border: 2px solid gray; border-radius: 10px; height: 229px; width: 298px;" src="{{ asset('img/shoe1.jpg') }}" alt="">
+                <img style="border: 2px solid gray; border-radius: 10px; height: 229px; width: 298px;" src="{{ asset('img/' . $product->product_images[0]) }}" alt="">
                 <div class="caption">
                     <p><strong>Product Name:</strong> {{ $product->product_name }}</p>
                     <p><strong>Size Available:</strong> {{ $product->product_size }}</p>
-                    <p><strong>Colors Available:</strong> {{ $product->product_color }}</p>
+                    <p><strong>Color:</strong> {{ $product->product_color }}</p>
                     <p><strong>Price:</strong> {{ $product->product_price }}</p>
                 </div>
                 <center><a style="margin-bottom: 5px;" class="btn btn-primary" onclick="addToCartOnclick({{ $product->id }})">Add to Cart</a></center>

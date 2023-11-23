@@ -28,6 +28,7 @@ Route::get('/shop', [ProductsController::class, 'index2'])->name('shop');
 
 Route::get('/admin', [FootFitsController::class, 'admin'])->name('admin');
 Route::get('/adminLogin', [FootFitsController::class, 'adminLogin'])->name('adminLogin');
+Route::get('/adminRegister', [FootFitsController::class, 'adminRegister'])->name('adminRegister');
 Route::get('/manageaccount', [FootFitsController::class, 'manageAccount'])->name('manageAccount');
 Route::get('/manageCustomers', [FootFitsController::class, 'manageCustomers'])->name('manageCustomers');
 Route::get('/manageOrders', [FootFitsController::class, 'manageOrders'])->name('manageOrders');

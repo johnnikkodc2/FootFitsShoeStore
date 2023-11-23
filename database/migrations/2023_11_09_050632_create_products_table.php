@@ -19,6 +19,7 @@ return new class extends Migration {
             $table->string('product_size');
             $table->string('product_color');
             $table->string('product_category');
+            $table->json('product_images')->nullable();
         });
     }
 
