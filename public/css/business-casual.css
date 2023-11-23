@@ -6,12 +6,11 @@
 
 body {
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-    background: url('../img/bg3.jpg') no-repeat center center fixed;
+    background: url('https://i.pinimg.com/originals/c3/12/d6/c312d6f3261e97d92a0de684ab1922c0.png') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-	background-color: rgb(178, 57, 212);
 }
 
 .modal
