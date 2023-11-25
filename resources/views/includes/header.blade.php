@@ -23,35 +23,60 @@
 </head>
 <body>
 
-    <nav id="nav">
-        <div class="navTop" >
+    <nav class="navbar navbar-expand-xl " id="nav">
+        <a class="navTop navbar-brand" >
             <div class="navItem">
-                <img src="../img/logo.png" alt="" style="position: absolute; top: -10px; width: 150px">
+                <img src="../img/logo.png" alt="" style="width: 6rem"> 
+                {{-- position: absolute; top: -10px;  --}}
             </div>
-        </div>
-        <div class="navBottom">
-            
-            <a href="{{ url('/') }}" style="color: black; text-decoration:none"><h3 class="menuItem">HOME</h3></a>
-                <a href="{{ url('/bestseller') }}" style="color: black; text-decoration:none"><h3 class="menuItem">BEST SELLERS</h3></a>
-                    <a href="{{ url('/shop') }}" style="color: black; text-decoration:none"><h3 class="menuItem">PRODUCTS</h3></a>
-                        <a href="{{ url('/about') }}" style="color: black; text-decoration:none"><h3 class="menuItem">ABOUT</h3></a>
-                            <a href="{{ url('/register') }}"><form class="form-inline" style="position: relative">
+        </a>
+         <button class="navbar-toggler ml-auto"  type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon d-flex flex-column">
+                <span class="custom-toggler-icon-bar"></span>
+                <span class="custom-toggler-icon-bar"></span>
+                <span class="custom-toggler-icon-bar"></span>
+            </span>
+        </button>
+       
+        <div class="navBottom collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a href="{{ url('/') }}" style="color: black; text-decoration:none"><h3 class="menuItem nav-link">HOME</h3></a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url('/bestseller') }}" style="color: black; text-decoration:none"><h3 class="menuItem nav-link">BEST SELLERS</h3></a>
+                </li>
+                <li class="nav-item">   
+                    <a href="{{ url('/shop') }}" style="color: black; text-decoration:none"><h3 class="menuItem nav-link">PRODUCTS</h3></a>
+                </li>   
+                <li class="nav-item">   
+                    <a href="{{ url('/about') }}" style="color: black; text-decoration:none"><h3 class="menuItem nav-link">ABOUT</h3></a>
+                </li>  
+                <li class="nav-item">   
+                    <a href="{{ url('/register') }}">
+                </li>  
+            </ul>      
+            <form class="form-inline" style="position: relative">
                 <i class="fas fa-search" aria-hidden="true"></i>
-                <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
-                  aria-label="Search">
-              </form>
-            
+                <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search">
+            </form> 
+            <div class="dropdown" style="display: block; align-items: right ; ">
+                {{-- position: relative; top: 0px; left: 1420px --}}
+                {{-- <button class="btn btn-primary dropdown-toggle" id="dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa-regular fa-user"></i>
+                <span class="caret"></span></button> --}}
+                <a class="dropdown-toggle btn btn-primary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa-regular fa-user"></i>
+                <span class="caret"></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" style="align-content: right" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="{{ route('register') }}">Sign Up</a>
+                    <a class="dropdown-item" href="{{ route('login') }}">Login</a>
+                    <a class="dropdown-item" href="#">Cart</a>
+                </div>
+            </div>   
         </div>
-        <div class="dropdown" style="    display: block;
-            align-items: right ; position: relative; top: 0px; left: 1420px">
-                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><i class="fa-regular fa-user"></i>
-                <span class="caret"></span></button>
-                <ul class="dropdown-menu dropdown-menu-right" style="align-content: right">
-                  <li><a href="{{ route('register') }}">Sign Up</a></li>
-                  <li><a href="{{ route('login') }}">Login</a></li>
-                  <li><a href="#">Cart</a></li>
-                </ul>
-              </div>
+        
+        
     </nav>
   <!-- Navbar -->
 
