@@ -46,7 +46,8 @@
             </div>
             
                
-            <div class="col-md-6" style="background-color: white; padding: 20px;">
+            <form action="{{ url('/productDetails/add_cart/'.$products->id) }}" method="post" class="col-md-6" style="background-color: white; padding: 20px;">
+                @csrf
                 <!-- Product Details -->
                 <h1>{{$products->product_name}}</h1>
                 <p><strong>Brand:</strong> {{$products->product_brand}}</p>
@@ -54,8 +55,16 @@
                 <p><strong>Size:</strong> {{$products->product_size}}</p>
                 <p><strong>Color:</strong> {{$products->product_color}}</p>
                 <p><strong>Category:</strong> {{$products->product_category}}</p>
-                <button class="btn btn-primary">Add to Cart</button>
-            </div>
+                <input type="number" name="quantity" />
+                <button type="submit" class="btn btn-primary">Add to Cart</button>
+                @if (session('success'))
+                    <div class="alert alert-success alert-dismissible fade show">
+                        {{session('success')}}
+                        <button class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+            </form>
+            
         </div>
     </div>
 

@@ -71,7 +71,7 @@
                 <div class="dropdown-menu dropdown-menu-right" style="align-content: right" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="{{ route('register') }}">Sign Up</a>
                     <a class="dropdown-item" href="{{ route('login') }}">Login</a>
-                    <a class="dropdown-item" href="#">Cart</a>
+                    <a class="dropdown-item" href="{{ route('cart') }}">Cart</a>
                 </div>
             </div>   
         </div>

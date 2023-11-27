@@ -42,7 +42,7 @@ class ProductsController extends Controller
             'product_size' => $request->input('product_size'),
             'product_color' => $request->input('product_color'),
             'product_category' => $request->input('product_category'),
-            'product_images' => $images,
+            // 'product_images' => $images,
 
         ]);
 
