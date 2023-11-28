@@ -35,7 +35,7 @@
                     <li><a href="{{ url('bestseller') }}">Best Sellers</a></li>
                     <li><a href="{{ url('shop') }}">Shop</a></li>
                     <li><a href="{{ url('about') }}">About</a></li>
-                    <li><a href="{{ url('register') }}">Register</a></li>
+                
                     @auth
                   
                     <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
@@ -43,8 +43,8 @@
                         @csrf
                     </form>
                 @else
-           
-                    <li><a href="login">Login</a></li>
+                <li><a href="{{ url('register') }}">Register</a></li>
+                    <li><a href="{{ url('login') }}">Login</a></li>
                 @endauth
                 </ul>
             </div>

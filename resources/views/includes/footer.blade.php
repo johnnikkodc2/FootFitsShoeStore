@@ -5,7 +5,6 @@
                 @auth
                     <strong>{{ Auth::user()->name }}</strong><br>
                     <strong>
-                        <a href="{{ route('user.manage-account') }}">Manage Account</a> |
                         <a href="{{ route('logout') }}">Logout</a> |
                         <a href="#">Back to top</a>
                     </strong><br>

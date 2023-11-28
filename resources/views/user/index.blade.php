@@ -66,8 +66,6 @@
             </div>
         </div>
 
-      
-
 
 
     </div>
@@ -87,7 +85,11 @@
             window.open('register.html', _self);
         });
 
-      
+        function ManagementOnclick() {
+            if (confirm("Only Administrators are allowed in this page, Please Login as an Administrator.") == true) {
+                window.open("Login.php?Role=Admin", "_self", null, true);
+            }
+        }
 
         function addToCartOnclick(ProductID) {
             if (confirm("Are you sure you want to add this product to your cart?") == true) {
