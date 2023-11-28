@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FootFitsController;
 use App\Http\Controllers\ProductsController;
@@ -25,6 +26,7 @@ Route::get('/order', [FootFitsController::class, 'order'])->name('order');
 Route::get('/register', [FootFitsController::class, 'register'])->name('register');
 Route::get('/shop', [FootFitsController::class, 'shop'])->name('shop');
 Route::get('/shop', [ProductsController::class, 'index2'])->name('shop');
+Route::get('/cart', [FootFitsController::class, 'cart'])->name('cart');
 
 Route::get('/admin', [FootFitsController::class, 'admin'])->name('admin');
 Route::get('/adminLogin', [FootFitsController::class, 'adminLogin'])->name('adminLogin');
@@ -41,5 +43,6 @@ Route::get('/editproducts/edit/{id}', [ProductsController::class, 'Edit']);
 Route::post('/editProducts/update/{id}', [ProductsController::class, 'Update'])->name('update.category');
 Route::get('/productDetails/details/{id}', [ProductsController::class, 'Details']);
 
+Route::post('/productDetails/add_cart/{id}', [CartController::class, 'AddCart'])->name('add.cart');
 
 

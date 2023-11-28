@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class FootFitsController extends Controller
 {
@@ -34,6 +36,18 @@ class FootFitsController extends Controller
     function productDetails()
     {
         return view('/user/productDetails');
+    }
+    function cart() 
+    {
+        if (Auth::id()) 
+        {
+            $cart = Cart::all();
+            return view('/user/cart', compact('cart'));
+        } 
+        else 
+        {
+            return view('/user/login');
+        }  
     }
 
 
