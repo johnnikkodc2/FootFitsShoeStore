@@ -11,37 +11,69 @@
 
     <title>FootFits</title>
     <style>
+        body {
+            background: white;
+        }
+
         .thumbnail {
             transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
-            background-color: #FDB927;
+            background-color: white;
             opacity: 0.8;
+            margin-bottom: 20px;
+            padding: 15px;
+            text-align: center;
+            height: 550px;
         }
 
         .thumbnail:hover {
-            transform: scale(1.1);
+            transform: scale(1.01);
             cursor: pointer;
-            background-color: #f3d634;
+            background-color: #87CEEB;
             opacity: 1;
+        }
+
+        .thumbnail img {
+            border: 2px solid gray;
+            border-radius: 10px;
+            height: 229px;
+            width: 298px;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            padding-top: 20px; /* Add the desired padding-top value */
         }
     </style>
 </head>
 
-<body style="background: purple">
+<body>
     <div class="container">
+        @php
+        $count = 0;
+        @endphp
         @foreach ($products as $product)
+        @if ($count % 3 == 0)
+        <div class="row">
+        @endif
         <div class="col-sm-4 col-lg-4 col-md-4">
             <div class="thumbnail" onclick="redirectToDetails({{ $product->id }})">
-                <h4 style="text-align: center;">{{ $product->product_brand }}</h4>
-                {{-- <img style="border: 2px solid gray; border-radius: 10px; height: 229px; width: 298px;" src="{{ asset('img/' . $product->product_images[0]) }}" alt=""> --}}
+                <h4>{{ $product->product_brand }}</h4>
+                <img src="{{ asset('img/' . $product->product_images[0]) }}" alt="">
                 <div class="caption">
                     <p><strong>Product Name:</strong> {{ $product->product_name }}</p>
                     <p><strong>Size Available:</strong> {{ $product->product_size }}</p>
                     <p><strong>Color:</strong> {{ $product->product_color }}</p>
                     <p><strong>Price:</strong> {{ $product->product_price }}</p>
                 </div>
-                <center><a style="margin-bottom: 5px;" class="btn btn-primary" onclick="addToCartOnclick({{ $product->id }})">Add to Cart</a></center>
+                <center><a class="btn btn-primary" onclick="addToCartOnclick({{ $product->id }})">Add to Cart</a></center>
             </div>
         </div>
+        @php
+        $count++;
+        @endphp
+        @if ($count % 3 == 0 || $loop->last)
+        </div>
+        @endif
         @endforeach
     </div>
 
@@ -53,7 +85,6 @@
     <script src="js/bootstrap.min.js"></script>
     <script>
         function redirectToDetails(productId) {
-            // Redirect to the product details page with the productId
             window.open("productDetails/details/" + productId, "_self", null, true);
         }
 

@@ -12,15 +12,35 @@
     <meta name="author" content="">
 
     <title>About</title>
+    <style>
+        body {
+            background: white;
+        }
+
+        .box {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .img-responsive {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Add this style for centering text */
+        .text-center {
+            text-align: center;
+        }
+    </style>
 
   
 </head>
 
-<body style="background:purple">
+<body style="background:white">
   
     <div class="container">
 
-        <div class="row">
+        <div class="row text-center">
             <div class="box">
                 <div class="col-lg-12">
                     <hr>
@@ -32,7 +52,7 @@
                 <div class="col-md-6">
                     <img class="img-responsive img-border-left" src="img/logo.png" alt="">
                 </div>
-                <div class="col-md-6" style="text-align:justify">
+                <div class="col-md-6 text-center" style="text-align:justify">
                     <p>Step into a world where finding the perfect pair of shoes is no longer a challenge for those with
                         larger foot sizes. Welcome to FootFits, where footwear meets perfection and inclusivity reigns
                         supreme. At FootFits, we are dedicated to providing an unparalleled shopping experience for
