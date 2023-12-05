@@ -19,25 +19,23 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-xl " id="nav">
-        <a class="navTop navbar-brand" >
+    <nav class="navbar navbar-expand-xl" id="nav">
+        <a class="navTop navbar-brand" href="#">
             <div class="navItem">
-                <img src="../img/logo.png" alt="" style="width: 6rem"> 
-                {{-- position: absolute; top: -10px;  --}}
+                <img src="../img/logo.png" alt="" style="width: 6rem">
             </div>
         </a>
-         <button class="navbar-toggler ml-auto"  type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon d-flex flex-column">
                 <span class="custom-toggler-icon-bar"></span>
                 <span class="custom-toggler-icon-bar"></span>
                 <span class="custom-toggler-icon-bar"></span>
             </span>
         </button>
-       
+
         <div class="navBottom collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
@@ -46,37 +44,32 @@
                 <li class="nav-item">
                     <a href="{{ url('/bestseller') }}" style="color: black; text-decoration:none"><h3 class="menuItem nav-link">BEST SELLERS</h3></a>
                 </li>
-                <li class="nav-item">   
+                <li class="nav-item">
                     <a href="{{ url('/shop') }}" style="color: black; text-decoration:none"><h3 class="menuItem nav-link">PRODUCTS</h3></a>
-                </li>   
-                <li class="nav-item">   
+                </li>
+                <li class="nav-item">
                     <a href="{{ url('/about') }}" style="color: black; text-decoration:none"><h3 class="menuItem nav-link">ABOUT</h3></a>
-                </li>  
-                <li class="nav-item">   
-                    <a href="{{ url('/register') }}">
-                </li>  
-            </ul>      
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url('/login') }}" style="color: black; text-decoration:none"><h3 class="menuItem nav-link">LOGIN</h3></a>
+                </li>
+            </ul>
             <form class="form-inline" style="position: relative">
                 <i class="fas fa-search" aria-hidden="true"></i>
                 <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search">
-            </form> 
-            <div class="dropdown" style="display: block; align-items: right ; ">
-                {{-- position: relative; top: 0px; left: 1420px --}}
-                {{-- <button class="btn btn-primary dropdown-toggle" id="dropdownMenuButton" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa-regular fa-user"></i>
-                <span class="caret"></span></button> --}}
+            </form>
+            <div class="dropdown" style="display: block; align-items: right;">
                 <a class="dropdown-toggle btn btn-primary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fa-regular fa-user"></i>
-                <span class="caret"></span>
+                    <i class="far fa-user"></i>
+                    <span class="caret"></span>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right" style="align-content: right" aria-labelledby="dropdownMenuButton">
+                <div class="dropdown-menu dropdown-menu-right" style="align-content: right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ route('register') }}">Sign Up</a>
                     <a class="dropdown-item" href="{{ route('login') }}">Login</a>
                     <a class="dropdown-item" href="{{ route('cart') }}">Cart</a>
                 </div>
-            </div>   
+            </div>
         </div>
-        
-        
     </nav>
   <!-- Navbar -->
 

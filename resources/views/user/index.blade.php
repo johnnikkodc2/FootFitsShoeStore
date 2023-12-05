@@ -22,7 +22,7 @@
         filter: drop-shadow(5px 5px 5px #000000);">
                 <div class="sliderBg"></div>
                 <h1 class="sliderTitle">YOUR ULTIMATE</br> DESTINATION</br>FOR STYLISH  </br> AND COZY </br> FOOTWEAR</h1>
-                <a href="#product">
+                <a href="{{ url('/shop') }}">
                     <button class="buyButton">BUY NOW!</button>
                 </a>
             </div>
@@ -38,46 +38,40 @@
         </div>
     </div>
 
-    {{-- <div class="features">
+     <div class="features">
         <div class="feature">
             <img src="https://raw.githubusercontent.com/ZeroOctave/ZeroOctave-Javascript-Projects/main/assets/Images/sneaker-images/shipping.png" class="featureIcon">
             <span class="featureTitle">FREE SHIPPING</span>
-            <span class="featureDesc">Free worldwide shipping on all orders.</span>
+            <span class="featureDesc">Free nationwide shipping on all orders.</span>
         </div>
         <div class="feature">
             <img src="https://raw.githubusercontent.com/ZeroOctave/ZeroOctave-Javascript-Projects/main/assets/Images/sneaker-images/return.png" class="featureIcon">
             <span class="featureTitle">30 DAYS RETURN</span>
-            <span class="featureDesc">No question return and refund in 14 days</span>
+            <span class="featureDesc">Not valid for self-damage</span>
         </div>
         <div class="feature">
             <img src="https://raw.githubusercontent.com/ZeroOctave/ZeroOctave-Javascript-Projects/main/assets/Images/sneaker-images/gift.png" class="featureIcon">
-            <span class="featureTitle">GIFT CARDS</span>
-            <span class="featureDesc">Buy gift cards and use coupon codes easily.</span>
+            <span class="featureTitle">Christmas Gift</span>
+            <span class="featureDesc">Buy shoes from us and deliver to your special someone.</span>
         </div>
         <div class="feature">
             <img src="https://raw.githubusercontent.com/ZeroOctave/ZeroOctave-Javascript-Projects/main/assets/Images/sneaker-images/contact.png" class="featureIcon">
             <span class="featureTitle">CONTACT US!</span>
-            <span class="featureDesc">Keep in touch via email and support system</span>
+            <span class="featureDesc">Footfits@gmail.com  0917-283-8821</span>
         </div>
-    </div> --}}
+    </div> 
 
-    {{-- <div class="product" id="product" >
+    <div class="product" id="product" >
         <img src="https://raw.githubusercontent.com/ZeroOctave/ZeroOctave-Javascript-Projects/main/assets/Images/sneaker-images/air.png" alt="" class="productImg">
         <div class="productDetails">
             <h1 class="productTitle" >AIR FORCE</h1>
-            <h2 class="productPrice">$199</h2>
-            <p class="productDesc">Lorem ipsum dolor sit amet consectetur impal adipisicing elit. Alias assumenda
-                dolorum
-                doloremque sapiente aliquid aperiam.</p>
+            <h2 class="productPrice">₱6,995</h2>
+            <p class="productDesc">The radiance lives on in the Nike Air Force 1, the basketball original that puts a fresh spin on what you know best</p>
             <div class="colors">
                 <div class="color"></div>
-                <div class="color"></div>
+
             </div>
-            <div class="sizes">
-                <div class="size">42</div>
-                <div class="size">43</div>
-                <div class="size">44</div>
-            </div>
+
             <button class="productButton">BUY NOW !</button>
         </div>
 
@@ -103,21 +97,21 @@
             <button class="payButton" >Checkout !</button>
             <span class="close">X</span>
         </div>
-    </div> --}}
+    </div> 
 
-    {{-- <div class="gallery" >
+    <div class="gallery" >
         <div class="galleryItem">
-            <h1 class="galleryTitle" >Be Yourself!</h1>
+            <h1 class="galleryTitle" >Stride Elegance</h1>
             <img src="https://images.pexels.com/photos/9295809/pexels-photo-9295809.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
                 alt="" class="galleryImg">
         </div>
         <div class="galleryItem">
             <img src="https://images.pexels.com/photos/1040427/pexels-photo-1040427.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
                 alt="" class="galleryImg">
-            <h1 class="galleryTitle">This is the First Day of Your New Life</h1>
+            <h1 class="galleryTitle">Footwear Fantasy</h1>
         </div>
         <div class="galleryItem">
-            <h1 class="galleryTitle">Just Do it!</h1>
+            <h1 class="galleryTitle">Step Glamour</h1>
             <img src="https://images.pexels.com/photos/7856965/pexels-photo-7856965.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
                 alt="" class="galleryImg">
         </div>
@@ -129,10 +123,10 @@
                 alt="" class="nsImg">
         </div>
         <div class="nsItem">
-            <h3 class="nsTitleSm">WINTER NEW ARRIVALS</h3>
-            <h1 class="nsTitle">New Season</h1>
-            <h1 class="nsTitle">New Collection</h1>
-            <a href="#nav">
+            <h1 class="nsTitleSm">CHRISTMAS SEASON</h1>
+            <h3 class="nsTitle">New Season</h3>
+            <h3 class="nsTitle">New Collection</h3>
+            <a href="{{ url('/shop') }}">
                 <button class="nsButton">CHOOSE YOUR STYLE</button>
             </a>
         </div>
@@ -140,58 +134,8 @@
             <img src="https://images.pexels.com/photos/7856965/pexels-photo-7856965.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
                 alt="" class="nsImg">
         </div>
-    </div> --}}
-    {{-- <footer>
-        <div class="footerLeft" >
-            <div class="footerMenu" >
-                <h1 class="fMenuTitle">About Us</h1>
-                <ul class="fList">
-                    <li class="fListItem">Company</li>
-                    <li class="fListItem">Contact</li>
-                    <li class="fListItem">Carrers</li>
-                    <li class="fListItem">Affiliates</li>
-                    <li class="fListItem">Stores</li>
-                </ul>
-            </div>
-            <div class="footerMenu" >
-                <h1 class="fMenuTitle">Useful Links</h1>
-                <ul class="fList">
-                    <li class="fListItem">Support</li>
-                    <li class="fListItem">Refund</li>
-                    <li class="fListItem">FAQ</li>
-                    <li class="fListItem">Feedback</li>
-                    <li class="fListItem">Stores</li>
-                </ul>
-            </div><div class="footerMenu" >
-                <h1 class="fMenuTitle">Products</h1>
-                <ul class="fList">
-                    <li class="fListItem">Air Force </li>
-                    <li class="fListItem">Air Jordan</li>
-                    <li class="fListItem">Blazer</li>
-                    <li class="fListItem">Craters</li>
-                    <li class="fListItem">Hippie</li>
-                </ul>
-            </div>
-        </div>
-        <div class="footerRight" >
-            <div class="footerRightMenu">
-                <h1 class="fMenuTitle" >Subscribe to our Newsletter</h1>
-                <div class="fMail" >
-                    <input type="text" placeholder="your@email.com" class="fInput" >
-                    <button class="fButton" >Join!</button>
-                </div>
-            </div>
-            <div class="footerRightMenu">
-                <h1 class="fMenuTitle">Follow Us</h1>
-                <div class="fIcons">
-                    <img src="https://raw.githubusercontent.com/ZeroOctave/ZeroOctave-Javascript-Projects/main/assets/Images/sneaker-images/facebook.png" alt="" class="fIcon">
-                    <img src="https://raw.githubusercontent.com/ZeroOctave/ZeroOctave-Javascript-Projects/main/assets/Images/sneaker-images/twitter.png" alt="" class="fIcon">
-                    <img src="https://raw.githubusercontent.com/ZeroOctave/ZeroOctave-Javascript-Projects/main/assets/Images/sneaker-images/instagram.png" alt="" class="fIcon">
-                    <img src="https://raw.githubusercontent.com/ZeroOctave/ZeroOctave-Javascript-Projects/main/assets/Images/sneaker-images/whatsapp.png" alt="" class="fIcon">
-                </div>
-            </div>
-        </div>
-    </footer> --}}
+    </div> 
+  
 
   </body>
 

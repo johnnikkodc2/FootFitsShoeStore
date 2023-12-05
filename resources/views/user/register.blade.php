@@ -61,7 +61,7 @@
         </div>
     
                       <div class="pt-1 mb-4"><a href="{{ route('index') }}">
-                        <button class='btn btn-dark btn-lg btn-block' type="submit" class="btn btn-default ml-4">{{ __('Register') }}</button>
+                        <button class='btn btn-dark btn-lg btn-block' type="submit" class="btn btn-default ml-4">  {{ __('Register') }}</button>
                     </a>
                       </div>
     

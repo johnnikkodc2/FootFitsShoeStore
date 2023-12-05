@@ -56,6 +56,12 @@ nav {
     cursor: pointer;
     color: lightgray;
     font-weight: 400;
+    font-size: 16px;
+    transition: color 0.3s; /* Adding a smooth transition effect */
+}
+
+.menuItem:hover {
+    color: white; /* Change to the color you want on hover */
 }
 
 .slider {
@@ -312,10 +318,6 @@ label {
     cursor: pointer;
 }
 
-.color:last-child {
-    background-color: darkblue;
-}
-
 .size {
     padding: 5px 20px;
     border: 1px solid black;
@@ -458,12 +460,6 @@ a.no-hover {
 
     .navBottom {
         flex-wrap: wrap;
-    }
-
-    .menuItem {
-        margin: 20px;
-        font-weight: 700;
-        font-size: 20px;
     }
 
     .slider {

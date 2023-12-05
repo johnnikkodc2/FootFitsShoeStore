@@ -1,0 +1,36 @@
+.thumbnail {
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out,
+        opacity 0.3s ease-in-out;
+    background-color: #fdb927;
+    opacity: 0.8;
+}
+
+.thumbnail:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    background-color: #f3d634;
+    opacity: 1;
+}
+
+/* Additional style for the table */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #4caf50;
+    color: white;
+}
+
+.checkout-button {
+    margin-top: 20px;
+}

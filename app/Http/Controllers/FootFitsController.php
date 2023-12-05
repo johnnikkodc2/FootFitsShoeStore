@@ -37,17 +37,18 @@ class FootFitsController extends Controller
     {
         return view('/user/productDetails');
     }
-    function cart() 
+    function checkout()
     {
-        if (Auth::id()) 
-        {
+        return view('/user/checkout');
+    }
+    function cart()
+    {
+        if (Auth::id()) {
             $cart = Cart::all();
             return view('/user/cart', compact('cart'));
-        } 
-        else 
-        {
+        } else {
             return view('/user/login');
-        }  
+        }
     }
 
 

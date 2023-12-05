@@ -1,0 +1,33 @@
+body {
+    background: white;
+}
+
+.thumbnail {
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out,
+        opacity 0.3s ease-in-out;
+    background-color: #f9f9f9;
+    opacity: 0.8;
+    margin-bottom: 20px;
+    padding: 15px;
+    text-align: center;
+    height: 550px;
+}
+
+.thumbnail:hover {
+    transform: scale(1.01);
+    cursor: pointer;
+    background-color: #ffffff;
+    opacity: 1;
+}
+
+.thumbnail img {
+    border: 1px solid #912109;
+    border-radius: 5px;
+    height: 250px;
+    width: 320px;
+    margin-bottom: 10px;
+}
+
+.container {
+    padding-top: 50px; /* Add the desired padding-top value */
+}

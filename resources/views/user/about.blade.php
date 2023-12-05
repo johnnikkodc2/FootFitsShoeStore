@@ -12,35 +12,14 @@
     <meta name="author" content="">
 
     <title>About</title>
-    <style>
-        body {
-            background: white;
-        }
 
-        .box {
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-
-        .img-responsive {
-            max-width: 100%;
-            height: auto;
-        }
-
-        /* Add this style for centering text */
-        .text-center {
-            text-align: center;
-        }
-    </style>
-
-  
 </head>
 
 <body style="background:white">
   
     <div class="container">
 
-        <div class="row text-center">
+        <div class="row">
             <div class="box">
                 <div class="col-lg-12">
                     <hr>
@@ -49,10 +28,11 @@
                     </h2>
                     <hr>
                 </div>
-                <div class="col-md-6">
-                    <img class="img-responsive img-border-left" src="img/logo.png" alt="">
+                <div >
+                    <img class="img-responsive mx-auto d-block img-border-left" src="img/logo.png" alt="">
                 </div>
-                <div class="col-md-6 text-center" style="text-align:justify">
+                
+                <div class="intro-text text-center text-justify">
                     <p>Step into a world where finding the perfect pair of shoes is no longer a challenge for those with
                         larger foot sizes. Welcome to FootFits, where footwear meets perfection and inclusivity reigns
                         supreme. At FootFits, we are dedicated to providing an unparalleled shopping experience for
@@ -75,11 +55,9 @@
                         passion for great shoes that fit perfectly. Our commitment to providing a user-friendly
                         platform, a broad selection of styles, and a seamless shopping experience sets us apart in the
                         world of online footwear retail.
-
-
                     </p>
-
                 </div>
+                
                 <div class="clearfix"></div>
             </div>
         </div>

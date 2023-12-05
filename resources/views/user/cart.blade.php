@@ -10,41 +10,44 @@
     <meta name="author" content="">
 
     <title>FootFits</title>
-    <style>
-        .thumbnail {
-            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
-            background-color: #FDB927;
-            opacity: 0.8;
-        }
-
-        .thumbnail:hover {
-            transform: scale(1.1);
-            cursor: pointer;
-            background-color: #f3d634;
-            opacity: 1;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
-<body style="background: purple">
+<body style="background: color">
     <div class="container">
-        @foreach ($cart as $cart_item)
-        <div class="col-sm-4 col-lg-4 col-md-4">
-            <div class="thumbnail" onclick="redirectToDetails({{ $cart_item->id }})">
-                <h4 style="text-align: center;">{{ $cart_item->product->product_brand }}</h4>
-                {{-- <img style="border: 2px solid gray; border-radius: 10px; height: 229px; width: 298px;" src="{{ asset('img/' . $cart_item->product->product_images[0]) }}" alt=""> --}}
-                <div class="caption">
-                    <p><strong>Product Name:</strong> {{ $cart_item->product->product_name }}</p>
-                    <p><strong>Size:</strong> {{ $cart_item->product->product_size }}</p>
-                    <p><strong>Color:</strong> {{ $cart_item->product->product_color }}</p>
-                    <p><strong>Quantity: {{ $cart_item->quantity }}</strong></p>
-                    <p><strong>Total Price:</strong> {{ $cart_item->price }}</p>
-                </div>
-                <center><a style="margin-bottom: 5px;" class="btn btn-primary" onclick="addToCartOnclick({{ $cart_item->id }})">Checkout</a></center>
-                <center><a style="margin-bottom: 5px;" class="btn btn-primary" onclick="addToCartOnclick({{ $cart_item->id }})">Delete</a></center>
-            </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product Brand</th>
+                    <th>Product Name</th>
+                    <th>Size</th>
+                    <th>Color</th>
+                    <th>Quantity</th>
+                    <th>Total Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($cart as $cart_item)
+                <tr>
+                    <td>{{ $cart_item->product->product_brand }}</td>
+                    <td>{{ $cart_item->product->product_name }}</td>
+                    <td>{{ $cart_item->product->product_size }}</td>
+                    <td>{{ $cart_item->product->product_color }}</td>
+                    <td>{{ $cart_item->quantity }}</td>
+                    <td>{{ $cart_item->price }}</td>
+                    <td>
+                        <a class="btn btn-danger" onclick="deleteCartItem({{ $cart_item->id }})">Delete</a>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+
+        <!-- Checkout Now button -->
+        <div class="checkout-button">
+            <a class="btn btn-primary" onclick="checkoutNow()">Checkout Now</a>
         </div>
-        @endforeach
     </div>
 
     <footer>
@@ -54,21 +57,14 @@
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script>
-        function redirectToDetails(productId) {
-            // Redirect to the product details page with the productId
-            window.open("productDetails/details/" + productId, "_self", null, true);
+        function deleteCartItem(cartItemId) {
+            // Implement logic to delete the cart item
+            console.log("Deleting cart item with ID: " + cartItemId);
         }
 
-        function ManagementOnclick() {
-            if (confirm("Only Administrators are allowed on this page. Please log in as an Administrator.") == true) {
-                window.open("Login.php?Role=Admin", "_self", null, true);
-            }
-        }
-
-        function addToCartOnclick(ProductID) {
-            if (confirm("Are you sure you want to add this product to your cart?") == true) {
-                window.open("Order.php?ProductID=" + ProductID, "_self", null, true);
-            }
+        function checkoutNow() {
+            // Implement logic for checkout
+            console.log("Checking out now");
         }
     </script>
 </body>
