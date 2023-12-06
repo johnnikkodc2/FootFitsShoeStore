@@ -15,26 +15,30 @@
 
 <body>
     <div class="container">
-        <h2>Checkout</h2>
-  <!-- Order Summary -->
+
   <div class="summary">
     <h3>Order Summary</h3>
  
     <table>
         <thead>
             <tr>
-                <th>Product Image</th>
+
                 <th>Product Name</th>
+                <th>Size</th>
+                <th>Color</th>
                 <th>Price</th>
                 <th>Quantity</th>
             </tr>
         </thead>
         <tbody>
     <tr>
-        <td class="product2"><img src="" alt="Product Image"></td>
+
         <td class="product-details2">
             <p>Product Name</p>
         </td>
+        <td>12</td>
+        <td>red</td>
+        <td>$2222</td>
         <td>$2222</td>
         <td>1</td>
     </tr>
