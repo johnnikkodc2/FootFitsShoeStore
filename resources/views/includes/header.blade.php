@@ -50,25 +50,53 @@
                 <li class="nav-item">
                     <a href="{{ url('/about') }}" style="color: black; text-decoration:none"><h3 class="menuItem nav-link">ABOUT</h3></a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ url('/login') }}" style="color: black; text-decoration:none"><h3 class="menuItem nav-link">LOGIN</h3></a>
-                </li>
+                @guest
+        <li class="nav-item">
+            <a href="{{ url('/login') }}" style="color: black; text-decoration:none"><h3 class="menuItem nav-link">LOGIN</h3></a>
+        </li>
+        @endguest
             </ul>
             <form class="form-inline" style="position: relative">
                 <i class="fas fa-search" aria-hidden="true"></i>
                 <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search">
             </form>
+            @auth
             <div class="dropdown" style="display: block; align-items: right;">
                 <a class="dropdown-toggle btn btn-primary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="far fa-user"></i>
                     <span class="caret"></span>
                 </a>
+          
+                    
+             
                 <div class="dropdown-menu dropdown-menu-right" style="align-content: right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('register') }}">Sign Up</a>
-                    <a class="dropdown-item" href="{{ route('login') }}">Login</a>
-                    <a class="dropdown-item" href="{{ route('cart') }}">Cart</a>
+
+                    <a class="dropdown-item" href="{{ route('cart') }}">Order 1</a>
+                    <a class="dropdown-item" href="{{ route('cart') }}">Order 2</a>
+                    <a class="dropdown-item" href="{{ route('cart') }}">Order 3</a>
+                    <a class="dropdown-item" href="{{ route('cart') }}">Order 4</a>
                 </div>
+           
             </div>
+
+            <div class="dropdown" style="display: block; align-items: right;">
+                <a class="dropdown-toggle btn btn-primary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="far fa-user"></i>
+                    <span class="caret"></span>
+                </a>
+          
+                    
+             
+                <div class="dropdown-menu dropdown-menu-right" style="align-content: right" aria-labelledby="navbarDropdown">
+
+                    <a class="dropdown-item" href="{{ route('cart') }}">Profile</a>
+                    <a class="dropdown-item" href="{{ route('cart') }}">Orders</a>
+                    <a class="dropdown-item" href="{{ route('cart') }}">Cart</a>
+                    <a class="dropdown-item" href="{{ route('cart') }}">Logout</a>
+                </div>
+           
+            </div>
+            @endauth
         </div>
     </nav>
   <!-- Navbar -->
