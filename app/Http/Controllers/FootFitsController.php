@@ -7,43 +7,39 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
-class FootFitsController extends Controller
-{
-    function index()
-    {
+class FootFitsController extends Controller {
+    function index() {
         return view('/user/index');
     }
-    function about()
-    {
+    function about() {
         return view('/user/about');
     }
-    function login()
-    {
+    function login() {
         return view('/user/login');
     }
-    function register()
-    {
+    function register() {
         return view('/user/register');
     }
-    function bestSeller()
-    {
+    function bestSeller() {
         return view('/user/bestSeller');
     }
-    function shop()
-    {
+    function shop() {
         return view('/user/shop');
     }
-    function productDetails()
-    {
+    function productDetails() {
         return view('/user/productDetails');
     }
-    function checkout()
-    {
+    function checkout() {
         return view('/user/checkout');
     }
-    function cart()
-    {
-        if (Auth::id()) {
+    function receipt() {
+        return view('/user/receipt');
+    }
+    function myorders() {
+        return view('/user/myorders');
+    }
+    function cart() {
+        if(Auth::id()) {
             $cart = Cart::all();
             return view('/user/cart', compact('cart'));
         } else {
@@ -54,49 +50,39 @@ class FootFitsController extends Controller
 
 
 
-    function admin()
-    {
+    function admin() {
         return view('/admin/admin');
     }
-    function manageAccount()
-    {
+    function manageAccount() {
         return view('/admin/manageAccount');
     }
 
-    function manageCustomers()
-    {
+    function manageCustomers() {
         $users = User::all();
         return view('/admin/manageCustomers', compact('users'));
 
     }
-    function manageOrders()
-    {
+    function manageOrders() {
         return view('/admin/manageOrders');
     }
-    function manageProducts()
-    {
+    function manageProducts() {
         return view('/admin/manageproducts');
     }
-    function editProducts()
-    {
+    function editProducts() {
         return view('/admin/editProducts');
     }
-    function manageProductList()
-    {
+    function manageProductList() {
         return view('/admin/manageProductList');
     }
 
-    function order()
-    {
+    function order() {
         return view('order');
     }
-    function adminLogin()
-    {
+    function adminLogin() {
         return view('/admin/adminLogin');
     }
 
-    function adminRegister()
-    {
+    function adminRegister() {
         return view('/admin/adminRegister');
     }
 

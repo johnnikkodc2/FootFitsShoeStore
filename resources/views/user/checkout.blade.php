@@ -39,7 +39,7 @@
         <td>12</td>
         <td>red</td>
         <td>$2222</td>
-        <td>$2222</td>
+
         <td>1</td>
     </tr>
 </tbody>

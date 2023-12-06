@@ -34,3 +34,28 @@ th {
 .checkout-button {
     margin-top: 20px;
 }
+/* Add your styles for the orders page */
+
+.order-list {
+    margin-top: 20px;
+}
+
+.order-card {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.card-body {
+    padding: 10px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    margin-bottom: 0.25rem;
+}
+
+/* Add any additional styles as needed */

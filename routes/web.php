@@ -28,6 +28,8 @@ Route::get('/shop', [FootFitsController::class, 'shop'])->name('shop');
 Route::get('/shop', [ProductsController::class, 'index2'])->name('shop');
 Route::get('/cart', [FootFitsController::class, 'cart'])->name('cart');
 Route::get('/checkout', [FootFitsController::class, 'checkout'])->name('checkout');
+Route::get('/receipt', [FootFitsController::class, 'receipt'])->name('receipt');
+Route::get('/myorders', [FootFitsController::class, 'myorders'])->name('myorders');
 
 Route::get('/admin', [FootFitsController::class, 'admin'])->name('admin');
 Route::get('/adminLogin', [FootFitsController::class, 'adminLogin'])->name('adminLogin');

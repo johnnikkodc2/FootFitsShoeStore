@@ -69,3 +69,16 @@ th {
     background-color: black;
     color: white;
 }
+.footer {
+    display: block;
+}
+
+/* Media query to hide the footer when printing */
+@media print {
+    .footer {
+        display: none;
+    }
+    .btn {
+        display: none;
+    }
+}
