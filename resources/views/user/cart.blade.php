@@ -15,6 +15,12 @@
 
 <body style="background: color">
     <div class="container">
+        @if (session('success'))
+            <div class="alert my-4 alert-success alert-dismissible fade show" role="alert">
+                {{session('success')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+        @endif
         <table>
             <thead>
                 <tr>
@@ -37,7 +43,8 @@
                     <td>{{ $cart_item->quantity }}</td>
                     <td>{{ $cart_item->price }}</td>
                     <td>
-                        <a class="btn btn-danger" onclick="deleteCartItem({{ $cart_item->id }})">Delete</a>
+                        {{-- <a class="btn btn-danger" onclick="deleteCartItem({{ $cart_item->id }})">Delete</a> --}}
+                        <a class="btn btn-danger" href={{url('productDetails/delete_cart/'.$cart_item->id)}}>Delete</a>
                     </td>
                 </tr>
                 @endforeach

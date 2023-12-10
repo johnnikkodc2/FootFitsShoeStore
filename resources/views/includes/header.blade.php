@@ -92,7 +92,13 @@
                     <a class="dropdown-item" href="{{ route('cart') }}">Profile</a>
                     <a class="dropdown-item" href="{{ route('cart') }}">Orders</a>
                     <a class="dropdown-item" href="{{ route('cart') }}">Cart</a>
-                    <a class="dropdown-item" href="{{ route('cart') }}">Logout</a>
+                    <form method="POST" action="{{ route('logout') }}" x-data>
+                        {{-- <a class="dropdown-item" href="{{ route('cart') }}">Logout</a> --}}
+                         @csrf
+                        <button type="submit" href="{{ route('logout') }}" @click.prevent="$root.submit();" class="dropdown-item">
+                            {{ __('Log Out') }}
+                        </button>
+                    </form>
                 </div>
            
             </div>

@@ -28,4 +28,9 @@ class CartController extends Controller
             return redirect('/login');
         }
     }
+
+    public function DeleteCart ($id) {
+        Cart::find($id)->delete();
+        return Redirect()->back()->with('success', 'Item deleted');
+    }
 }

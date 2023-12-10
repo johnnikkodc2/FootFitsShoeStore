@@ -48,12 +48,12 @@
                       <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
     
                       <div class="form-outline mb-4">
-                        <input type="email" id="form2Example17" class="form-control form-control-lg" />
+                        <input type="email" id="form2Example17" class="form-control form-control-lg" name="email" />
                         <label class="form-label" for="name">{{ __('Email Address') }}</label>
                       </div>
     
                       <div class="form-outline mb-4">
-                        <input type="password" id="form2Example27" class="form-control form-control-lg" />
+                        <input type="password" id="form2Example27" class="form-control form-control-lg" name="password" />
                         <label class="form-label" for="password">{{ __('Password') }}</label>
                       </div>
 

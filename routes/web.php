@@ -47,5 +47,6 @@ Route::post('/editProducts/update/{id}', [ProductsController::class, 'Update'])-
 Route::get('/productDetails/details/{id}', [ProductsController::class, 'Details']);
 
 Route::post('/productDetails/add_cart/{id}', [CartController::class, 'AddCart'])->name('add.cart');
+Route::get('productDetails/delete_cart/{id}', [CartController::class, 'DeleteCart']);
 
 

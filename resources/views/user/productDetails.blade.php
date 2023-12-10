@@ -10,7 +10,6 @@
     <meta name="author" content="">
 
     <title>Product Details</title>
- 
 </head>
 
 <body>
@@ -58,9 +57,9 @@
                 <input type="number" name="quantity" />
                 <button type="submit" class="btn btn-primary">Add to Cart</button>
                 @if (session('success'))
-                    <div class="alert alert-success alert-dismissible fade show">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
                         {{session('success')}}
-                        <button class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
                 @endif
             </form>
