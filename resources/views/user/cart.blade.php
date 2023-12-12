@@ -44,7 +44,8 @@
                     <td>{{ $cart_item->price }}</td>
                     <td>
                         {{-- <a class="btn btn-danger" onclick="deleteCartItem({{ $cart_item->id }})">Delete</a> --}}
-                        <a class="btn btn-danger" href={{url('productDetails/delete_cart/'.$cart_item->id)}}>Delete</a>
+                        <a class="btn btn-primary" href={{url('/productDetails/edit_cart/'.$cart_item->id)}} >Edit</a>
+                        <a class="btn btn-danger" onclick="deleteCartItem({{ $cart_item->id }})" >Delete</a>
                     </td>
                 </tr>
                 @endforeach
@@ -67,6 +68,12 @@
         function deleteCartItem(cartItemId) {
             // Implement logic to delete the cart item
             console.log("Deleting cart item with ID: " + cartItemId);
+
+            var isConfirmed = confirm("Are you sure you want to delete this cart item?");
+
+            if (isConfirmed) {
+                window.location.href = "{{ url('productDetails/delete_cart/') }}" + '/' + cartItemId;
+            }
         }
 
         function checkoutNow() {

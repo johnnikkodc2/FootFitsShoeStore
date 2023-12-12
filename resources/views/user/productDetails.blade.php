@@ -44,26 +44,39 @@
                 </div>
             </div>
             
-               
-            <form action="{{ url('/productDetails/add_cart/'.$products->id) }}" method="post" class="col-md-6" style="background-color: white; padding: 20px;">
-                @csrf
-                <!-- Product Details -->
-                <h1>{{$products->product_name}}</h1>
-                <p><strong>Brand:</strong> {{$products->product_brand}}</p>
-                <p><strong>Price:</strong> {{$products->product_price}}</p>
-                <p><strong>Size:</strong> {{$products->product_size}}</p>
-                <p><strong>Color:</strong> {{$products->product_color}}</p>
-                <p><strong>Category:</strong> {{$products->product_category}}</p>
-                <input type="number" name="quantity" />
-                <button type="submit" class="btn btn-primary">Add to Cart</button>
-                @if (session('success'))
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                        {{session('success')}}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    </div>
+            @if (isset($products) && $products)   
+                <form action="{{ url('/productDetails/add_cart/'.$products->id) }}" method="post" class="col-md-6" style="background-color: white; padding: 20px;">
+                    @csrf
+                    <!-- Product Details -->
+                    <h1>{{$products->product_name}}</h1>
+                    <p><strong>Brand:</strong> {{$products->product_brand}}</p>
+                    <p><strong>Price:</strong> {{$products->product_price}}</p>
+                    <p><strong>Size:</strong> {{$products->product_size}}</p>
+                    <p><strong>Color:</strong> {{$products->product_color}}</p>
+                    <p><strong>Category:</strong> {{$products->product_category}}</p>
+                    <input type="number" name="quantity" min="1" value="1" />
+                    <button type="submit" class="btn btn-primary">Add to Cart</button>
+                    @if (session('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{session('success')}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                    @endif
+                </form>
+            @else
+                <form action="{{ url('/productDetails/update_cart/'.$cart->id) }}" method="post" class="col-md-6" style="background-color: white; padding: 20px;">
+                    @csrf
+                    <!-- Product Details -->
+                    <h1>{{$cart->product->product_name}}</h1>
+                    <p><strong>Brand:</strong> {{$cart->product->product_brand}}</p>
+                    <p><strong>Price:</strong> {{$cart->product->product_price}}</p>
+                    <p><strong>Size:</strong> {{$cart->product->product_size}}</p>
+                    <p><strong>Color:</strong> {{$cart->product->product_color}}</p>
+                    <p><strong>Category:</strong> {{$cart->product->product_category}}</p>
+                    <input type="number" name="quantity" min="1" value={{$cart->quantity}} />
+                    <button type="submit" class="btn btn-primary">Edit Cart</button>
+                </form>
                 @endif
-            </form>
-            
         </div>
     </div>
 
@@ -71,9 +84,11 @@
         @include('includes.footer')
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- nung tinanggal ko mga scripts, dun gumana ung profile menu dropdown -->
+
+    {{-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
 </body>
 
 </html>

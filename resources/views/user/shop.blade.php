@@ -64,9 +64,11 @@
         @include('includes.footer')
     </footer>
 
-    <script src="js/jquery.js"></script>
+    <!-- nung tinanggal ko mga scripts, dun gumana ung profile menu dropdown -->
+    
+    {{-- <script src="js/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
     <script>
         function redirectToDetails(productId) {
             window.open("productDetails/details/" + productId, "_self", null, true);

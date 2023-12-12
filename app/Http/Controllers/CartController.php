@@ -29,8 +29,25 @@ class CartController extends Controller
         }
     }
 
+    public function EditCart ($id) {
+        $cart = Cart::find($id);
+        return view('user.productDetails', compact('cart'));
+    }
+
+    public function UpdateCart (Request $request, $id) {
+        $cart = Cart::find($id);
+        $product = Products::find($cart->product_id);
+        Cart::find($id)->update([
+            'quantity' => $request->quantity,
+            'price' => ((float)$product->product_price) * $request->quantity,
+        ]);
+        return Redirect()->route('cart')->with('success', 'Cart Item Edited!');
+    }
+
     public function DeleteCart ($id) {
+        $cart = Cart::find($id);
+        $product = Products::find($cart->product_id);
         Cart::find($id)->delete();
-        return Redirect()->back()->with('success', 'Item deleted');
+        return Redirect()->back()->with('success', 'Item (' .$product->product_name .  ') deleted');
     }
 }
