@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    @include('includes.header')
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,10 +11,44 @@
     <link rel="stylesheet" href="{{ asset('css/checkout.css') }}">
     <title>Receipt</title>
 
+    <!-- Add your custom styles or link external stylesheet here -->
+
+    <style>
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .logo {
+            max-width: 100px; /* Adjust as needed */
+        }
+
+        .credit-card {
+            font-family: 'Courier New', Courier, monospace; /* To maintain the format of the credit card number */
+        }
+
+        .shipping-details {
+            margin-top: 20px;
+        }
+
+        .company-info {
+            margin-top: 20px;
+        }
+
+        .receipt-info {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
+        <!-- Company Information -->
+        <div class="company-info">
+            <img src="../img/logo.png" alt="Logo" class="logo">
+            <p>FootFits Shoe Store</p>
+            <p>123 P. Campa Street, Sampaloc, Manila City</p>
+        </div>
 
         <div class="summary">
             <h3>Order Summary</h3>
@@ -41,31 +75,49 @@
                     </tr>
                 </tbody>
             </table>
-
         </div>
+
         <!-- Display Total Price -->
         <p>Total Price: $1111</p>
 
+        <!-- Credit Card Information -->
+        <h3>Credit Card Information</h3>
+        <p class="credit-card">Credit Card Number: **** **** **** 1234</p>
+
         <!-- Shipping Details -->
-        <h3>Shipping Details</h3>
-        <p><strong>Full Name:</strong> John Doe</p>
-        <p><strong>Address:</strong> 123 Main St</p>
-        <p><strong>City:</strong> Example City</p>
-        <p><strong>ZIP Code:</strong> 12345</p>
+        <div class="shipping-details">
+            <h3>Shipping Details</h3>
+            <p><strong>Full Name:</strong> John Doe</p>
+            <p><strong>Address:</strong> 123 Main St</p>
+            <p><strong>City:</strong> Example City</p>
+            <p><strong>ZIP Code:</strong> 12345</p>
+        </div>
+
+        <!-- Receipt Information -->
+        <div class="receipt-info">
+            <h3>Receipt Information</h3>
+            <p><strong>Receipt Number:</strong> 123456</p>
+            <p><strong>Receipt Date:</strong> January 1, 2023</p>
+        </div>
+
+        <!-- Thank You Message -->
+        <br>
+        <p>Thank you for your purchase!</p>
 
         <!-- Add a print or export button -->
         <button onclick="printReceipt()" class="btn btn-primary">Print Receipt</button>
+        <button onclick="gohome()" class="btn btn-primary">View Orders</button>
     </div>
 
-    <footer class="footer">
-        @include('includes.footer')
-    </footer>
 
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script>
         function printReceipt() {
             window.print();
+        }
+        function gohome() {
+            window.location.href = "{{ route('myorders') }}";
         }
     </script>
 </body>

@@ -10,51 +10,69 @@
     <meta name="author" content="">
 
     <title>FootFits</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('css/cart.css') }}">
 </head>
 
-<body style="background: color">
-    <div class="container">
-        @if (session('success'))
-            <div class="alert my-4 alert-success alert-dismissible fade show" role="alert">
-                {{session('success')}}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+<body style="margin-top: 100px;">
+    <div class="container-fluid mt-5">
+        <div class="col-lg-12">
+            <hr>
+            <hr>
+            <h2 class="intro-text text-center">
+                <strong>Cart</strong>
+            </h2>
+            <hr>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="table-responsive">
+                    <table id="myTable" class="table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Name</th>
+                                <th>Qty</th>
+                                <th>Price</th>
+                                <th class="text-right"><span id="amount" class="amount">Amount</span> </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="product-img">
+                                        <div class="img-prdct"><img src="https://image.flaticon.com/icons/png/512/3144/3144467.png"></div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p>Product One</p>
+                                </td>
+                                <td>
+                                    <div class="button-container">
+                                        <button class="cart-qty-minus" type="button" value="-">-</button>
+                                      
+                                        <input type="text" name="qty" min="0" class="qty form-control" value="0"/>
+                                        <button class="cart-qty-plus" type="button" value="+">+</button>
+                                    </div>
+                                </td>
+                                <td>
+                                    <input type="text" value="72" class="price form-control" disabled>
+                                </td>
+                                <td align="right">$ <span id="amount" class="amount">0</span></td>
+                            </tr>
+                            
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4"></td><td align="right"><strong>TOTAL = $  <span id="total" class="total">0</span></strong></td>
+                            </tr>
+                        </tfoot>
+                        
+                    </table>
+                  
+                </div>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
             </div>
-        @endif
-        <table>
-            <thead>
-                <tr>
-                    <th>Product Brand</th>
-                    <th>Product Name</th>
-                    <th>Size</th>
-                    <th>Color</th>
-                    <th>Quantity</th>
-                    <th>Total Price</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($cart as $cart_item)
-                <tr>
-                    <td>{{ $cart_item->product->product_brand }}</td>
-                    <td>{{ $cart_item->product->product_name }}</td>
-                    <td>{{ $cart_item->product->product_size }}</td>
-                    <td>{{ $cart_item->product->product_color }}</td>
-                    <td>{{ $cart_item->quantity }}</td>
-                    <td>{{ $cart_item->price }}</td>
-                    <td>
-                        {{-- <a class="btn btn-danger" onclick="deleteCartItem({{ $cart_item->id }})">Delete</a> --}}
-                        <a class="btn btn-primary" href={{url('/productDetails/edit_cart/'.$cart_item->id)}} >Edit</a>
-                        <a class="btn btn-danger" onclick="deleteCartItem({{ $cart_item->id }})" >Delete</a>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-
-        <!-- Checkout Now button -->
-        <div class="checkout-button">
-            <a class="btn btn-primary" onclick="checkoutNow()">Checkout Now</a>
         </div>
     </div>
 
@@ -77,10 +95,59 @@
         }
 
         function checkoutNow() {
-            // Implement logic for checkout
-            console.log("Checking out now");
+            window.location.href = "{{ route('checkout') }}";
         }
     </script>
+    <script>
+$(document).ready(function(){
+  	update_amounts();
+  	$('.qty, .price').on('keyup keypress blur change', function(e) {
+	  	update_amounts();
+  	});
+});
+function update_amounts(){
+	var sum = 0.0;
+	  	$('#myTable > tbody  > tr').each(function() {
+			var qty = $(this).find('.qty').val();
+		  	var price = $(this).find('.price').val();
+		  	var amount = (qty*price)
+		  	sum+=amount;
+		  	$(this).find('.amount').text(''+amount);
+	  	});
+	$('.total').text(sum);
+}
+
+
+
+//----------------for quantity-increment-or-decrement-------
+var incrementQty;
+var decrementQty;
+var plusBtn  = $(".cart-qty-plus");
+var minusBtn = $(".cart-qty-minus");
+var incrementQty = plusBtn.click(function() {
+	var $n = $(this)
+		.parent(".button-container")
+		.find(".qty");
+	$n.val(Number($n.val())+1 );
+	update_amounts();
+});
+
+var decrementQty = minusBtn.click(function() {
+		var $n = $(this)
+		.parent(".button-container")
+		.find(".qty");
+	var QtyVal = Number($n.val());
+	if (QtyVal > 0) {
+		$n.val(QtyVal-1);
+	}
+	update_amounts();
+});
+
+
+
+
+
+</script>
 </body>
 
 </html>

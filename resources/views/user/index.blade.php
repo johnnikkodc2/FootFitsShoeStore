@@ -12,7 +12,7 @@
     <title>Foot Fits</title>
 </head>
 @include('includes.header')
-  <body>
+<body style="margin-top: 90px;">
 
     <div class="slider" >
         <div class="sliderWrapper">

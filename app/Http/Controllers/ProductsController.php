@@ -40,9 +40,10 @@ class ProductsController extends Controller
             'product_brand' => $request->input('product_brand'),
             'product_price' => $request->input('product_price'),
             'product_size' => $request->input('product_size'),
+            'product_quantity' => $request->input('product_quantity'),
             'product_color' => $request->input('product_color'),
             'product_category' => $request->input('product_category'),
-             'product_images' => $images,
+            'product_images' => $images,
 
         ]);
 
@@ -65,6 +66,7 @@ class ProductsController extends Controller
             'product_brand' => $request->product_brand,
             'product_price' => $request->product_price,
             'product_size' => $request->product_size,
+            'product_quantity' => $request->product_quantity,
             'product_color' => $request->product_color,
             'product_category' => $request->product_category,
 

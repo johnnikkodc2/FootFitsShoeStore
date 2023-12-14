@@ -19,6 +19,7 @@ Route::middleware([
 });
 Route::get('/', [FootFitsController::class, 'index'])->name('index');
 Route::get('/about', [FootFitsController::class, 'about'])->name('about');
+Route::get('/faq', [FootFitsController::class, 'faq'])->name('faq');
 Route::get('/login', [FootFitsController::class, 'login'])->name('login');
 Route::get('/register', [FootFitsController::class, 'register'])->name('register');
 Route::get('/bestseller', [FootFitsController::class, 'bestSeller'])->name('bestSeller');
@@ -50,4 +51,5 @@ Route::post('/productDetails/add_cart/{id}', [CartController::class, 'AddCart'])
 Route::get('/productDetails/delete_cart/{id}', [CartController::class, 'DeleteCart']);
 Route::get('/productDetails/edit_cart/{id}', [CartController::class, 'EditCart']);
 Route::post('/productDetails/update_cart/{id}', [CartController::class, 'UpdateCart']);
+
 

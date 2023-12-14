@@ -44,35 +44,49 @@
 							<form method="POST" action="{{url('editProducts/update/'.$products->id)}}" >
 								@csrf
 								<div class="mb-3">
-									<label for="product_name" class="form-label">Product Name</label>
+									<label for="product_name" class="form-label">Name</label>
 									<input type="text" class="form-control" name="product_name" id="product_name"
                                     value="{{$products->product_name}}">
 								</div>
 								<div class="mb-3">
-									<label for="product_brand" class="form-label">Product Brand</label>
+									<label for="product_brand" class="form-label">Brand</label>
 									<input type="text" class="form-control" name="product_brand" id="product_brand"
                                     value="{{$products->product_brand}}">
 								</div>
 								<div class="mb-3">
-									<label for="product_price" class="form-label">Product Price</label>
+									<label for="product_price" class="form-label">Price</label>
 									<input type="text" class="form-control" name="product_price" id="product_price"
                                     value="{{$products->product_price}}">
 								</div>
 								<div class="mb-3">
-									<label for="product_size" class="form-label">Product Size</label>
+									<label for="product_size" class="form-label">Size</label>
 									<input type="text" class="form-control" name="product_size" id="product_size"
                                     value="{{$products->product_size}}">
 								</div>
 								<div class="mb-3">
-									<label for="product_color" class="form-label">Product Color</label>
+									<label for="product_quantity" class="form-label">Quantity</label>
+									<input type="text" class="form-control" name="product_quantity" id="product_quantity"
+                                    value="{{$products->product_quantity}}">
+								</div>
+								<div class="mb-3">
+									<label for="product_color" class="form-label">Color</label>
 									<input type="text" class="form-control" name="product_color" id="product_color"
                                     value="{{$products->product_color}}">
 								</div>
+
 								<div class="mb-3">
-									<label for="product_category" class="form-label">Product Category</label>
-									<input type="text" class="form-control" name="product_category" id="product_category"
-                                    value="{{$products->product_category}}">
+									<label for="product_category" class="form-label">Category</label>
+									<select class="form-control" name="product_category" id="product_category"  value="{{$products->product_category}}" required>
+										<option value="Lifestyle">Lifestyle</option>
+										<option value="Running">Running</option>
+										<option value="Basketball">Basketball</option>
+										<option value="Football">Football</option>
+										<option value="Formal">Formal</option>
+									</select>
 								</div>
+
+
+							
 								<div class="mb-3">
 								<button type="submit" class="btn btn-primary">Submit</button>
 							</div>
@@ -105,8 +119,12 @@
 </script>
 </body>
 <footer>
-	@include('includes.footer')
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<p>Copyright &copy; FootFits 2023</p>
+			</div>
+		</div>
 	</div>
 </footer>
-
 </html>

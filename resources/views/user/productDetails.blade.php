@@ -8,87 +8,138 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <link rel="stylesheet" href="{{ asset('css/productdetails.css') }}">
     <title>Product Details</title>
 </head>
 
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <!-- Product Image Carousel -->
-                <div id="productImageCarousel" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        @if (!empty($products->product_images))
-                            @foreach ($products->product_images as $index => $image)
-                                <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                                    <img src="{{ asset('img/' . $image) }}" class="d-block w-100" alt="Product Image {{ $index + 1 }}">
-                                </div>
-                            @endforeach
-                        @else
-                            <!-- Default alternative images if product_images is empty -->
-                            <div class="carousel-item active">
-                                <img src="{{ asset('img/logo.png') }}" class="d-block w-100" alt="Alt Image 1">
-                            </div>
-                            
-                        @endif
-                    </div>
-                    <a class="carousel-control-prev" href="#productImageCarousel" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#productImageCarousel" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
+<body style="margin-top: 100px;">
+    <div class = "card-wrapper">
+        <div class = "card">
+          <!-- card left -->
+          <div class="product-imgs">
+            <div class="img-display">
+                <div class="img-showcase">
+                    @if (!empty($products->product_images))
+                        @foreach ($products->product_images as $index => $image)
+                            <img src="{{ asset('img/' . $image) }}" alt="shoe image">
+                        @endforeach
+                    @else
+                        <img src="{{ asset('img/logo.png') }}" alt="shoe image">
+                    @endif
                 </div>
             </div>
-            
-            @if (isset($products) && $products)   
-                <form action="{{ url('/productDetails/add_cart/'.$products->id) }}" method="post" class="col-md-6" style="background-color: white; padding: 20px;">
-                    @csrf
-                    <!-- Product Details -->
-                    <h1>{{$products->product_name}}</h1>
-                    <p><strong>Brand:</strong> {{$products->product_brand}}</p>
-                    <p><strong>Price:</strong> {{$products->product_price}}</p>
-                    <p><strong>Size:</strong> {{$products->product_size}}</p>
-                    <p><strong>Color:</strong> {{$products->product_color}}</p>
-                    <p><strong>Category:</strong> {{$products->product_category}}</p>
-                    <input type="number" name="quantity" min="1" value="1" />
-                    <button type="submit" class="btn btn-primary">Add to Cart</button>
-                    @if (session('success'))
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            {{session('success')}}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <div class="img-select">
+                @if (!empty($products->product_images))
+                    @foreach ($products->product_images as $index => $image)
+                        <div class="img-item">
+                            <a href="#" data-id="{{ $index + 1 }}">
+                                <img src="{{ asset('img/' . $image) }}" alt="shoe image" style="max-width: 50px; max-height: 50px;">
+                            </a>
                         </div>
-                    @endif
-                </form>
-            @else
-                <form action="{{ url('/productDetails/update_cart/'.$cart->id) }}" method="post" class="col-md-6" style="background-color: white; padding: 20px;">
-                    @csrf
-                    <!-- Product Details -->
-                    <h1>{{$cart->product->product_name}}</h1>
-                    <p><strong>Brand:</strong> {{$cart->product->product_brand}}</p>
-                    <p><strong>Price:</strong> {{$cart->product->product_price}}</p>
-                    <p><strong>Size:</strong> {{$cart->product->product_size}}</p>
-                    <p><strong>Color:</strong> {{$cart->product->product_color}}</p>
-                    <p><strong>Category:</strong> {{$cart->product->product_category}}</p>
-                    <input type="number" name="quantity" min="1" value={{$cart->quantity}} />
-                    <button type="submit" class="btn btn-primary">Edit Cart</button>
-                </form>
+                    @endforeach
+                @else
+                    <div class="img-item">
+                        <a href="#" data-id="1">
+                            <img src="{{ asset('img/logo.png') }}" alt="shoe image" style="max-width: 50px; max-height: 50px;">
+                        </a>
+                    </div>
                 @endif
+            </div>
+            
         </div>
-    </div>
+        
+          <!-- card right -->
+          <div class = "product-content">
+            <h2 class = "product-title">{{$products->product_name}}</h2>
+
+        
+            <div class = "product-price">
+
+              <p class = "new-price">Price: <span>&#8369;{{number_format($products->product_price)}}</span></p>
+            </div>
+      
+            <div class = "product-detail">
+              <h2>Description: </h2>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eveniet veniam tempora fuga tenetur placeat sapiente architecto illum soluta consequuntur, aspernatur quidem at sequi ipsa!</p>
+            
+              <ul>
+                <li>Color: <span>{{$products->product_color}}</span></li>
+                <li>Available: <span>{{ $products->product_quantity }}</span></li>
+                <li>Category: <span>{{$products->product_category}}</span></li>
+                <li>Shipping Area: <span>Nationwide</span></li>
+                <li>Shipping Fee: <span>Free</span></li>
+              </ul>
+            </div>
+      
+            <div class = "purchase-info">
+              <input type = "number" min = "0" value = "1">
+              
+              <button type = "button" class = "btn">
+                Add to Cart <i class = "fas fa-shopping-cart"></i>
+              </button>
+           
+            </div>
+      
+            <div class = "social-links">
+              <p>Share At: </p>
+              <a href = "#">
+                <i class = "fab fa-facebook-f"></i>
+              </a>
+              <a href = "#">
+                <i class = "fab fa-twitter"></i>
+              </a>
+              <a href = "#">
+                <i class = "fab fa-instagram"></i>
+              </a>
+              <a href = "#">
+                <i class = "fab fa-whatsapp"></i>
+              </a>
+              <a href = "#">
+                <i class = "fab fa-pinterest"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <footer style="margin-top: 20px;">
         @include('includes.footer')
     </footer>
 
-    <!-- nung tinanggal ko mga scripts, dun gumana ung profile menu dropdown -->
-
-    {{-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
+  
 </body>
+<script>
+    	function formatPrice(input) {
+			// Remove non-numeric characters
+			let value = input.value.replace(/\D/g, '');
+	
+			// Add commas for every 3 digits
+			value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	
+			// Update the input value
+			input.value = value;
+		}
+</script>
+<script>
+    const imgs = document.querySelectorAll('.img-select a');
+const imgBtns = [...imgs];
+let imgId = 1;
+
+imgBtns.forEach((imgItem) => {
+    imgItem.addEventListener('click', (event) => {
+        event.preventDefault();
+        imgId = imgItem.dataset.id;
+        slideImage();
+    });
+});
+
+function slideImage(){
+    const displayWidth = document.querySelector('.img-showcase img:first-child').clientWidth;
+
+    document.querySelector('.img-showcase').style.transform = `translateX(${- (imgId - 1) * displayWidth}px)`;
+}
+
+window.addEventListener('resize', slideImage);
+</script>
 
 </html>

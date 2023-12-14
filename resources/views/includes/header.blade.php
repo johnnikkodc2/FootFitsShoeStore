@@ -18,135 +18,113 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('css/header.css') }}">
 </head>
 <body>
-
-    <nav class="navbar navbar-expand-xl" id="nav">
-        <a class="navTop navbar-brand" href="#">
-            <div class="navItem">
-                <img src="../img/logo.png" alt="" style="width: 6rem">
+    <div class="fixed-top">
+        <header class="topbar">
+            <div class="container">
+              <div class="row">
+                <!-- social icon-->
+                <div class="col-sm-12">
+                  <ul class="social-network">
+                    <li><a class="waves-effect waves-dark" href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a class="waves-effect waves-dark" href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a class="waves-effect waves-dark" href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a class="waves-effect waves-dark" href="#"><i class="fa fa-pinterest"></i></a></li>
+                    <li><a class="waves-effect waves-dark" href="#"><i class="fa fa-google-plus"></i></a></li>
+                  </ul>
+                </div>
+      
+              </div>
             </div>
-        </a>
-        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon d-flex flex-column">
-                <span class="custom-toggler-icon-bar"></span>
-                <span class="custom-toggler-icon-bar"></span>
-                <span class="custom-toggler-icon-bar"></span>
-            </span>
-        </button>
-
-        <div class="navBottom collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+        </header>
+        <nav class="navbar navbar-expand-lg navbar-dark mx-background-top-linear">
+          <div class="container">
+            <a class="navbar-brand" href="index.html" style="text-transform: uppercase;"><img src="../img/logo.png" alt="" style="width: 2.5rem"> FootFits </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+      
+              <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a href="{{ url('/') }}" style="color: black; text-decoration:none"><h3 class="menuItem nav-link">HOME</h3></a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ url('/bestseller') }}" style="color: black; text-decoration:none"><h3 class="menuItem nav-link">BEST SELLERS</h3></a>
-                </li>
+              
                 <li class="nav-item">
                     <a href="{{ url('/shop') }}" style="color: black; text-decoration:none"><h3 class="menuItem nav-link">PRODUCTS</h3></a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ url('/about') }}" style="color: black; text-decoration:none"><h3 class="menuItem nav-link">ABOUT</h3></a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ url('/faq') }}" style="color: black; text-decoration:none"><h3 class="menuItem nav-link">FAQS</h3></a>
+                </li>
                 @guest
         <li class="nav-item">
             <a href="{{ url('/login') }}" style="color: black; text-decoration:none"><h3 class="menuItem nav-link">LOGIN</h3></a>
         </li>
         @endguest
-            </ul>
-            <form class="form-inline" style="position: relative">
-                <i class="fas fa-search" aria-hidden="true"></i>
-                <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search" aria-label="Search">
-            </form>
-            @auth
-            <div class="dropdown" style="display: block; align-items: right;">
-                <a class="dropdown-toggle btn btn-primary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="far fa-user"></i>
-                    <span class="caret"></span>
-                </a>
-          
-                    
-             
-                <div class="dropdown-menu dropdown-menu-right" style="align-content: right" aria-labelledby="navbarDropdown">
+        <li class="nav-item">
+          <div class="navBottom collapse navbar-collapse" id="navbarSupportedContent">
+ 
 
-                    <a class="dropdown-item" href="{{ route('cart') }}">Order 1</a>
-                    <a class="dropdown-item" href="{{ route('cart') }}">Order 2</a>
-                    <a class="dropdown-item" href="{{ route('cart') }}">Order 3</a>
-                    <a class="dropdown-item" href="{{ route('cart') }}">Order 4</a>
-                </div>
-           
-            </div>
+            <div class="navBottom collapse navbar-collapse" id="navbarSupportedContent">
 
-            <div class="dropdown" style="display: block; align-items: right;">
-                <a class="dropdown-toggle btn btn-primary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="far fa-user"></i>
-                    <span class="caret"></span>
-                </a>
-          
-                    
-             
-                <div class="dropdown-menu dropdown-menu-right" style="align-content: right" aria-labelledby="navbarDropdown">
 
-                    <a class="dropdown-item" href="{{ route('cart') }}">Profile</a>
-                    <a class="dropdown-item" href="{{ route('cart') }}">Orders</a>
-                    <a class="dropdown-item" href="{{ route('cart') }}">Cart</a>
-                    <form method="POST" action="{{ route('logout') }}" x-data>
-                        {{-- <a class="dropdown-item" href="{{ route('cart') }}">Logout</a> --}}
-                         @csrf
-                        <button type="submit" href="{{ route('logout') }}" @click.prevent="$root.submit();" class="dropdown-item">
-                            {{ __('Log Out') }}
-                        </button>
-                    </form>
-                </div>
-           
-            </div>
-            @endauth
+@auth
+  
+
+    <div class="nav-item">
+        <a class="nav-link" href="{{ route('cart') }}">
+            <i class="fas fa-shopping-cart"></i>
+        </a>
+    </div>
+
+
+</div>
+
+
         </div>
-    </nav>
-  <!-- Navbar -->
+      </li>
 
-    {{-- <img src="{{ url('img/logo.png') }}" style="height:150px;width:150px;display: block; margin-left: auto; margin-right: auto;margin-bottom:0px">
-    <div class="brand">FootFits</div>
-    <div class="address-bar"> Your Ultimate Destination for <strong>Stylish and Comfortable Footwear</strong></div>
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">FootFits</a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/') }}">Home</a></li>
-                    <li><a href="{{ url('bestseller') }}">Best Sellers</a></li>
-                    <li><a href="{{ url('shop') }}">Shop</a></li>
-                    <li><a href="{{ url('about') }}">About</a></li>
-                
-                    @auth
-                  
-                    <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                @else
-                <li><a href="{{ url('register') }}">Register</a></li>
-                    <li><a href="{{ url('login') }}">Login</a></li>
-                @endauth
-                </ul>
-            </div>
-        </div>
-    </nav> --}}
+      <li class="nav-item" style="margin-left: 40px;">
+        <div class="dropdown" style="display: block; align-items: right;">
+        <a class="dropdown-toggle btn btn-primary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="far fa-user"></i>
+            <span class="caret"></span>
+        </a>
     
+        <div class="dropdown-menu dropdown-menu-right" style="align-content: right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ route('cart') }}">Profile</a>
+            <a class="dropdown-item" href="{{ route('myorders') }}">Orders</a>
+            <form method="POST" action="{{ route('logout') }}" x-data>
+                @csrf
+                <button type="submit" href="{{ route('logout') }}" @click.prevent="$root.submit();" class="dropdown-item">
+                    {{ __('Log Out') }}
+                </button>
+            </form>
+        </div>
+        </div>
+    </li>
+    @endauth
+              </ul>
+            
+            </div>
+          </div>
+        </nav>
+      </div>
 </body>
-
 <script src="home.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
+</html>

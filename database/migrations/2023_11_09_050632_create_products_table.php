@@ -15,8 +15,9 @@ return new class extends Migration {
             $table->timestamps();
             $table->string('product_name');
             $table->string('product_brand');
-            $table->string('product_price');
-            $table->string('product_size');
+            $table->integer('product_price');
+            $table->integer('product_size');
+            $table->integer('product_quantity');
             $table->string('product_color');
             $table->string('product_category');
             $table->json('product_images')->nullable();

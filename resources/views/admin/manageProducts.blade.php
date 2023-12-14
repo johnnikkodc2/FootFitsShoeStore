@@ -21,6 +21,11 @@
 		href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic"
 		rel="stylesheet" type="text/css">
 
+		<!-- Include toastr CSS and JS files -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
 </head>
 
 <body  style="background:purple">
@@ -39,12 +44,13 @@
 							<thead>
 								<tr>
 									<th>ID</th>
-									<th>Product Name</th>
-									<th>Product Brand</th>
-									<th>Product Price</th>
-									<th>Product Size</th>
-									<th>Product Color</th>
-									<th>Product Category</th>
+									<th>Name</th>
+									<th>Brand</th>
+									<th>Price</th>
+									<th>Size</th>
+									<th>Color</th>
+									<th>Category</th>
+									<th>Quantity</th>
 									<th>Modify</th>
 								</tr>
 							</thead>
@@ -54,14 +60,15 @@
 									<td>{{ $product->id }}</td>
 									<td>{{ $product->product_name }}</td>
 									<td>{{ $product->product_brand }}</td>
-									<td>{{ $product->product_price }}</td>
+									<td>&#8369; {{ number_format($product->product_price) }}</td>
 									<td>{{ $product->product_size }}</td>
 									<td>{{ $product->product_color }}</td>
 									<td>{{ $product->product_category }}</td>
+									<td>{{ $product->product_quantity }}</td>
 									<td>
 										<a href="{{url('editproducts/edit/'.$product->id)}}" class="btn btn-info">Edit</a>
-										<a href="{{url('manageproducts/delete/'.$product->id)}}" class="btn btn-danger">Delete</a>
-										</td>
+										<button onclick="confirmDelete({{ $product->id }})" class="btn btn-danger">Delete</button>
+									</td>
 								</tr>
 								@endforeach
 							</tbody>
@@ -75,30 +82,54 @@
 							<h2 class="intro-text text-center">Add Product</h2>
 							<form method="POST" action="{{ route('AllProducts') }}" enctype="multipart/form-data">
 								@csrf
+					
 								<div class="mb-3">
-									<label for="product_name" class="form-label">Product Name</label>
-									<input type="text" class="form-control" name="product_name" id="product_name">
+									<label for="product_brand" class="form-label">Brand</label>
+									<select class="form-control" name="product_brand" id="product_brand" required>
+										<option value="nike">Nike</option>
+										<option value="adidas">Adidas</option>
+										<option value="converse">Converse</option>
+										<option value="vans">Vans</option>
+										<option value="skechers">Skechers</option>
+										<option value="newbalance">New Balance</option>
+										<option value="reebok">Reebok</option>
+										<option value="puma">Puma</option>
+										<option value="underarmour">Under Armour</option>
+										<option value="asics">ASICS</option>
+								
+									</select>
 								</div>
 								<div class="mb-3">
-									<label for="product_brand" class="form-label">Product Brand</label>
-									<input type="text" class="form-control" name="product_brand" id="product_brand">
+									<label for="product_name" class="form-label">Name</label>
+									<input type="text" class="form-control" name="product_name" id="product_name" required>
 								</div>
 								<div class="mb-3">
-									<label for="product_price" class="form-label">Product Price</label>
-									<input type="text" class="form-control" name="product_price" id="product_price">
+									<label for="product_price" class="form-label">Price</label>
+									<input type="number" class="form-control" name="product_price" id="product_price" oninput="formatPrice(this) required>
 								</div>
 								<div class="mb-3">
-									<label for="product_size" class="form-label">Product Size</label>
-									<input type="text" class="form-control" name="product_size" id="product_size">
+									<label for="product_size" class="form-label">Size</label>
+									<input type="number" class="form-control" name="product_size" id="product_size " required>
 								</div>
 								<div class="mb-3">
-									<label for="product_color" class="form-label">Product Color</label>
-									<input type="text" class="form-control" name="product_color" id="product_color">
+									<label for="product_quantity" class="form-label">Quantity</label>
+									<input type="number" class="form-control" name="product_quantity" id="product_quantity " required>
 								</div>
 								<div class="mb-3">
-									<label for="product_category" class="form-label">Product Category</label>
-									<input type="text" class="form-control" name="product_category" id="product_category">
+									<label for="product_color" class="form-label">Color</label>
+									<input type="text" class="form-control" name="product_color" id="product_color" required>
 								</div>
+								<div class="mb-3">
+									<label for="product_category" class="form-label">Category</label>
+									<select class="form-control" name="product_category" id="product_category" required>
+										<option value="Lifestyle">Lifestyle</option>
+										<option value="Running">Running</option>
+										<option value="Basketball">Basketball</option>
+										<option value="Football">Football</option>
+										<option value="Formal">Formal</option>
+									</select>
+								</div>
+								
 								    <!-- Add file input for images -->
     <!-- Add file input for images -->
     <div class="mb-3">
@@ -131,6 +162,17 @@
 			</div>
 		</div>
 	</footer>
+	<script>
+		function confirmDelete(productId) {
+			// Display a confirmation dialog
+			var result = confirm("Are you sure you want to delete this product?");
+	
+			// If the user clicks "OK," proceed with the delete operation
+			if (result) {
+				window.location.href = "{{ url('manageproducts/delete') }}" + '/' + productId;
+			}
+		}
+	</script>
 	<script>
         function handleFileSelect(input) {
             var selectedImages = document.getElementById('selected_images');
@@ -169,6 +211,35 @@
 		$(document).ready(function () {
 
 		});
+	</script>
+	<script>
+		function formatPrice(input) {
+			// Remove non-numeric characters
+			let value = input.value.replace(/\D/g, '');
+	
+			// Add commas for every 3 digits
+			value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	
+			// Update the input value
+			input.value = value;
+		}
+		$(document).ready(function () {
+        // Form submission
+        $('form').submit(function (e) {
+            e.preventDefault();
+
+            // Perform your form submission logic here
+
+            // Display success toast
+            toastr.success('Form submitted successfully!', 'Success');
+
+            // Clear the form or redirect if needed
+            // ...
+
+            // Example: Clear form fields
+            $(this)[0].reset();
+        });
+    });
 	</script>
 
 </body>

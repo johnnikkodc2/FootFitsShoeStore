@@ -73,8 +73,14 @@
     </div>
 
     <footer>
-        @include('includes.footer')
-    </footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<p>Copyright &copy; FootFits 2023</p>
+				</div>
+			</div>
+		</div>
+	</footer>
 
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
