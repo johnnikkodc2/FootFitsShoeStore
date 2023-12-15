@@ -38,6 +38,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($cart as $cart_item)
                             <tr>
                                 <td>
                                     <div class="product-img">
@@ -45,26 +46,26 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <p>Product One</p>
+                                    <p>{{ $cart_item->product->product_brand }} {{ $cart_item->product->product_name }}</p>
                                 </td>
                                 <td>
                                     <div class="button-container">
                                         <button class="cart-qty-minus" type="button" value="-">-</button>
                                       
-                                        <input type="text" name="qty" min="0" class="qty form-control" value="0"/>
+                                        <input type="number" name="qty" min="0" class="qty form-control" value={{ $cart_item->product->product_quantity}}/>
                                         <button class="cart-qty-plus" type="button" value="+">+</button>
                                     </div>
                                 </td>
                                 <td>
                                     <input type="text" value="72" class="price form-control" disabled>
                                 </td>
-                                <td align="right">$ <span id="amount" class="amount">0</span></td>
+                                <td align="right">&#8369; <span id="amount" class="amount">0</span></td>
                             </tr>
-                            
+                            @endforeach
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td colspan="4"></td><td align="right"><strong>TOTAL = $  <span id="total" class="total">0</span></strong></td>
+                                <td colspan="4"></td><td align="right"><strong>TOTAL = &#8369;  <span id="total" class="total">0</span></strong></td>
                             </tr>
                         </tfoot>
                         
