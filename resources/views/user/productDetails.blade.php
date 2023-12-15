@@ -71,24 +71,21 @@
               </ul>
             </div>
       
-            <form
-            @if (isset($products) && $products)
-                action="{{ url('/productDetails/add_cart/'.$products->id) }}"
-            @else
-                action="{{ url('/productDetails/update_cart/'.$cart->id) }}"
-            @endif
-            method="post" class="col-md-6" style="background-color: white; padding: 20px;">
+            <form action="{{ url('/productDetails/add_cart/'.$products->id) }}" method="post" class = "purchase-info">
+                @csrf 
+              <input type = "number" name = "quantity" min = "1" max={{ $products->product_quantity }} value = "1" >
+              
+              <button type = "submit" class = "btn">
+                Add to Cart <i class = "fas fa-shopping-cart"></i>
+              </button>
 
-            @csrf
-
-            <div class="purchase-info">
-                <input type="number" min="0" value="1" name="quantity">
-
-                <button type="submit" class="btn">
-                    Add to Cart <i class="fas fa-shopping-cart"></i>
-                </button>
-            </div>
-        </form>
+              @if (session('success'))
+                  <div class="alert alert-success alert-dismissible fade show" role="alert">
+                      {{session('success')}}
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  </div>
+              @endif
+            </form>
       
             <div class = "social-links">
               <p>Share At: </p>

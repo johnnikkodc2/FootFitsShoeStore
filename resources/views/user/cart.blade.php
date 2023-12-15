@@ -26,6 +26,12 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md-8">
+                @if (session('success'))
+                    <div class="alert my-4 alert-success alert-dismissible fade show" role="alert">
+                        {{session('success')}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                @endif
                 <div class="table-responsive">
                     <table id="myTable" class="table">
                         <thead>
@@ -35,6 +41,7 @@
                                 <th>Qty</th>
                                 <th>Price</th>
                                 <th class="text-right"><span id="amount" class="amount">Amount</span> </th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -42,26 +49,31 @@
                             <tr>
                                 <td>
                                     <div class="product-img">
-                                        <div class="img-prdct"><img src="https://image.flaticon.com/icons/png/512/3144/3144467.png"></div>
+                                        <div class="img-prdct"><img src={{ asset('img/' . $cart_item->product->product_images[0] )}}></div>
                                     </div>
                                 </td>
                                 <td>
-                                    <p>{{ $cart_item->product->product_brand }} {{ $cart_item->product->product_name }}</p>
+                                    <p>{{ $cart_item->product->product_name }}</p>
                                 </td>
                                 <td>
                                     <div class="button-container">
                                         <button class="cart-qty-minus" type="button" value="-">-</button>
-                                      
-                                        <input type="number" name="qty" min="0" class="qty form-control" value="{{ $cart_item->product->product_quantity}}"/>
+                                        <input type="text" name="qty" min="1" max={{ $cart_item->product->product_quantity }} class="qty form-control" value={{ $cart_item->quantity }} />
                                         <button class="cart-qty-plus" type="button" value="+">+</button>
                                     </div>
                                 </td>
                                 <td>
-                                    <input type="text" value="{{ $cart_item->product->product_price}}" class="price form-control" disabled>
+                                    <input type="text" value={{ $cart_item->product->product_price }} class="price form-control" disabled>
                                 </td>
-                                <td align="right">&#8369; <span id="amount" class="amount">0</span></td>
+                                <td align="right">$ <span id="amount" class="amount">0</span></td>
+                                <td>
+                                    <a class="btn" onclick="deleteCartItem({{ $cart_item->id }})" >
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </td>
                             </tr>
                             @endforeach
+                            
                         </tbody>
                         <tfoot>
                             <tr>
