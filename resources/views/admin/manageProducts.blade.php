@@ -24,7 +24,15 @@
 		<!-- Include toastr CSS and JS files -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<style>
+    .horizontal-radio-group {
+        display: flex;
+    }
 
+    .form-check {
+        margin-right: 10px; /* Adjust the spacing as needed */
+    }
+</style>
 
 </head>
 
@@ -108,9 +116,46 @@
 									<input type="number" class="form-control" name="product_price" id="product_price" oninput="formatPrice(this) required>
 								</div>
 								<div class="mb-3">
-									<label for="product_size" class="form-label">Size</label>
-									<input type="number" class="form-control" name="product_size" id="product_size " required>
-								</div>
+    <label for="product_size" class="form-label">Size</label>
+
+    <div class="horizontal-radio-group">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="product_size" id="size_10" value="10" required>
+            <label class="form-check-label" for="size_10">10</label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="product_size" id="size_11" value="11" required>
+            <label class="form-check-label" for="size_11">11</label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="product_size" id="size_12" value="12" required>
+            <label class="form-check-label" for="size_12">12</label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="product_size" id="size_13" value="13" required>
+            <label class="form-check-label" for="size_13">13</label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="product_size" id="size_14" value="14" required>
+            <label class="form-check-label" for="size_14">14</label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="product_size" id="size_15" value="15" required>
+            <label class="form-check-label" for="size_15">15</label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="product_size" id="size_16" value="16" required>
+            <label class="form-check-label" for="size_16">16</label>
+        </div>
+    </div>
+</div>
+
 								<div class="mb-3">
 									<label for="product_quantity" class="form-label">Quantity</label>
 									<input type="number" class="form-control" name="product_quantity" id="product_quantity " required>
@@ -119,6 +164,11 @@
 									<label for="product_color" class="form-label">Color</label>
 									<input type="text" class="form-control" name="product_color" id="product_color" required>
 								</div>
+								<div class="mb-3">
+									<label for="product_description" class="form-label">Description</label>
+									<textarea class="form-control" name="product_description" id="product_description" required></textarea>
+								</div>
+								
 								<div class="mb-3">
 									<label for="product_category" class="form-label">Category</label>
 									<select class="form-control" name="product_category" id="product_category" required>

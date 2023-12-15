@@ -18,7 +18,15 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
 
-
+	<style>
+		.horizontal-radio-group {
+			display: flex;
+		}
+	
+		.form-check {
+			margin-right: 10px; /* Adjust the spacing as needed */
+		}
+	</style>
 </head>
 
 <body  style="background:purple">
@@ -60,9 +68,33 @@
 								</div>
 								<div class="mb-3">
 									<label for="product_size" class="form-label">Size</label>
-									<input type="text" class="form-control" name="product_size" id="product_size"
-                                    value="{{$products->product_size}}">
+								
+									<div class="horizontal-radio-group">
+										<div class="form-check">
+											<input class="form-check-input" type="radio" name="product_size" id="size_10" value="10" required {{$products->product_size == 10 ? 'checked' : ''}}>
+											<label class="form-check-label" for="size_10">10</label>
+										</div>
+								
+										<div class="form-check">
+											<input class="form-check-input" type="radio" name="product_size" id="size_11" value="11" required {{$products->product_size == 11 ? 'checked' : ''}}>
+											<label class="form-check-label" for="size_11">11</label>
+										</div>
+								
+										<div class="form-check">
+											<input class="form-check-input" type="radio" name="product_size" id="size_12" value="12" required {{$products->product_size == 12 ? 'checked' : ''}}>
+											<label class="form-check-label" for="size_12">12</label>
+										</div>
+								
+										<!-- Repeat for other sizes -->
+								
+										<div class="form-check">
+											<input class="form-check-input" type="radio" name="product_size" id="size_16" value="16" required {{$products->product_size == 16 ? 'checked' : ''}}>
+											<label class="form-check-label" for="size_16">16</label>
+										</div>
+									</div>
 								</div>
+								
+							
 								<div class="mb-3">
 									<label for="product_quantity" class="form-label">Quantity</label>
 									<input type="text" class="form-control" name="product_quantity" id="product_quantity"
@@ -73,7 +105,10 @@
 									<input type="text" class="form-control" name="product_color" id="product_color"
                                     value="{{$products->product_color}}">
 								</div>
-
+								<div class="mb-3">
+									<label for="product_description" class="form-label">Description</label>
+									<textarea class="form-control" name="product_description" id="product_description" required></textarea>
+								</div>
 								<div class="mb-3">
 									<label for="product_category" class="form-label">Category</label>
 									<select class="form-control" name="product_category" id="product_category"  value="{{$products->product_category}}" required>

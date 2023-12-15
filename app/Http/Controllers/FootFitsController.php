@@ -39,19 +39,43 @@ class FootFitsController extends Controller
     }
     function checkout()
     {
-        return view('/user/checkout');
+        if (Auth::id()) {
+
+            return view('/user/checkout');
+        } else {
+            return view('/user/login');
+        }
     }
     function receipt()
     {
-        return view('/user/receipt');
+        if (Auth::id()) {
+
+            return view('/user/receipt');
+        } else {
+            return view('/user/login');
+        }
     }
     function myorders()
     {
-        return view('/user/myorders');
+        if (Auth::id()) {
+
+            return view('/user/myorders');
+        } else {
+            return view('/user/login');
+        }
     }
     function faq()
     {
         return view('/user/faq');
+    }
+    function profile()
+    {
+        if (Auth::id()) {
+
+            return view('/user/profile');
+        } else {
+            return view('/user/login');
+        }
     }
     function cart()
     {

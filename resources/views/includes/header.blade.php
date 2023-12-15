@@ -99,12 +99,12 @@
       <li class="nav-item" style="margin-left: 40px;">
         <div class="dropdown" style="display: block; align-items: right;">
         <a class="dropdown-toggle btn btn-primary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="far fa-user"></i>
+           {{ Auth::user()->name }}
             <span class="caret"></span>
         </a>
     
         <div class="dropdown-menu dropdown-menu-right" style="align-content: right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{ route('cart') }}">Profile</a>
+            <a class="dropdown-item" href="{{ route('profile') }}">Profile</a>
             <a class="dropdown-item" href="{{ route('myorders') }}">Orders</a>
             <form method="POST" action="{{ route('logout') }}" x-data>
                 @csrf

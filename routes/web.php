@@ -31,6 +31,7 @@ Route::get('/cart', [FootFitsController::class, 'cart'])->name('cart');
 Route::get('/checkout', [FootFitsController::class, 'checkout'])->name('checkout');
 Route::get('/receipt', [FootFitsController::class, 'receipt'])->name('receipt');
 Route::get('/myorders', [FootFitsController::class, 'myorders'])->name('myorders');
+Route::get('/profile', [FootFitsController::class, 'profile'])->name('profile');
 
 Route::get('/admin', [FootFitsController::class, 'admin'])->name('admin');
 Route::get('/adminLogin', [FootFitsController::class, 'adminLogin'])->name('adminLogin');
