@@ -71,7 +71,7 @@
                     </table>
                   
                 </div>
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+                <button class="btn btn-primary btn-lg btn-block" onclick="checkoutNow()">Continue to checkout</button>
             </div>
         </div>
     </div>

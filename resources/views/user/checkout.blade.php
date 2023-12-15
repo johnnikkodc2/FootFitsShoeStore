@@ -202,7 +202,7 @@
                   </div>
               </div>
               <hr class="mb-4">
-              <button class="btn btn-primary btn-lg btn-block" type="submit">Confirm Order</button>
+              <button class="btn btn-primary btn-lg btn-block" onclick="generatereceipt()">Confirm Order</button>
             </form>
           </div>
         </div>
@@ -234,7 +234,11 @@
             // Return false to prevent the form from submitting (remove this line if you want to submit the form)
             return false;
         }
+        
     </script>
+    <script>function generatereceipt() {
+      window.location.href = "{{ route('receipt') }}";
+  }</script>
     <script>
         const ccNumberInput = document.getElementById('cc-number');
         const cardLogoContainer = document.getElementById('card-logo-container');
