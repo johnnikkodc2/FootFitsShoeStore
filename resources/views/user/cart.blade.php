@@ -52,12 +52,12 @@
                                     <div class="button-container">
                                         <button class="cart-qty-minus" type="button" value="-">-</button>
                                       
-                                        <input type="number" name="qty" min="0" class="qty form-control" value={{ $cart_item->product->product_quantity}}/>
+                                        <input type="number" name="qty" min="0" class="qty form-control" value="{{ $cart_item->product->product_quantity}}"/>
                                         <button class="cart-qty-plus" type="button" value="+">+</button>
                                     </div>
                                 </td>
                                 <td>
-                                    <input type="text" value="72" class="price form-control" disabled>
+                                    <input type="text" value="{{ $cart_item->product->product_price}}" class="price form-control" disabled>
                                 </td>
                                 <td align="right">&#8369; <span id="amount" class="amount">0</span></td>
                             </tr>
