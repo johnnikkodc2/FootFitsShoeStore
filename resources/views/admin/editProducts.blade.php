@@ -85,7 +85,18 @@
 											<label class="form-check-label" for="size_12">12</label>
 										</div>
 								
-										<!-- Repeat for other sizes -->
+										<div class="form-check">
+											<input class="form-check-input" type="radio" name="product_size" id="size_13" value="13" required {{$products->product_size == 13 ? 'checked' : ''}}>
+											<label class="form-check-label" for="size_13">13</label>
+										</div>
+										<div class="form-check">
+											<input class="form-check-input" type="radio" name="product_size" id="size_14" value="14" required {{$products->product_size == 14 ? 'checked' : ''}}>
+											<label class="form-check-label" for="size_14">14</label>
+										</div>
+										<div class="form-check">
+											<input class="form-check-input" type="radio" name="product_size" id="size_15" value="15" required {{$products->product_size == 15 ? 'checked' : ''}}>
+											<label class="form-check-label" for="size_15">15</label>
+										</div>
 								
 										<div class="form-check">
 											<input class="form-check-input" type="radio" name="product_size" id="size_16" value="16" required {{$products->product_size == 16 ? 'checked' : ''}}>
@@ -107,8 +118,9 @@
 								</div>
 								<div class="mb-3">
 									<label for="product_description" class="form-label">Description</label>
-									<textarea class="form-control" name="product_description" id="product_description" required></textarea>
+									<textarea class="form-control" name="product_description" id="product_description" required>{{ $products->product_description }}</textarea>
 								</div>
+								
 								<div class="mb-3">
 									<label for="product_category" class="form-label">Category</label>
 									<select class="form-control" name="product_category" id="product_category"  value="{{$products->product_category}}" required>

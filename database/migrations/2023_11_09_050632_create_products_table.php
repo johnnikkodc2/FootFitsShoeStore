@@ -20,6 +20,7 @@ return new class extends Migration {
             $table->integer('product_quantity');
             $table->string('product_color');
             $table->string('product_category');
+            $table->string('product_description');
             $table->json('product_images')->nullable();
         });
     }

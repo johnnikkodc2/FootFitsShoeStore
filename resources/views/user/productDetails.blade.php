@@ -60,7 +60,7 @@
       
             <div class = "product-detail">
               <h2>Description: </h2>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eveniet veniam tempora fuga tenetur placeat sapiente architecto illum soluta consequuntur, aspernatur quidem at sequi ipsa!</p>
+              <p>{{$products->product_description}}</p>
             
               <ul>
                 <li>Color: <span>{{$products->product_color}}</span></li>
