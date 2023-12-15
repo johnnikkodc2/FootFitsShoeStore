@@ -11,16 +11,25 @@ class CartController extends Controller
 {
     //
     public function AddCart (Request $request, $id) {
-        if (Auth::id()) {
+        if (Auth::user()) {
             $user = Auth::user();
             $product = Products::find($id);
+            $cart = Cart::where('product_id', $id)->first();
 
-        Cart::create([
+        if ($cart) {
+            Cart::where('product_id', $id)->first()->update([
+            'quantity' => $request->quantity,
+            'price' => ((float)$product->product_price) * $request->quantity,
+        ]);
+        } else {
+            Cart::create([
             'user_id' => $user->id,
             'product_id' => $product->id,
             'quantity' => $request->quantity,
             'price' => ((float)$product->product_price) * $request->quantity,
         ]);
+        }
+        
 
         return Redirect()->back()->with('success', 'Added to Cart!');
 
