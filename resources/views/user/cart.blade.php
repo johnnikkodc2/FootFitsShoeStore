@@ -81,6 +81,18 @@
         @include('includes.footer')
     </footer>
 
+    <script>
+    	function formatPrice(input) {
+			// Remove non-numeric characters
+			let value = input.value.replace(/\D/g, '');
+	
+			// Add commas for every 3 digits
+			value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	
+			// Update the input value
+			input.value = value;
+		}
+</script>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script>

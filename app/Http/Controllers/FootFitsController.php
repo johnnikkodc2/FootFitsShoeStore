@@ -77,13 +77,19 @@ class FootFitsController extends Controller
             return view('/user/login');
         }
     }
-    function cart()
+    public function cart()
     {
-        if (Auth::id()) {
-            $cart = Cart::all();
-            return view('/user/cart', compact('cart'));
+        // Check if the user is authenticated
+        if (Auth::check()) {
+            // Fetch the cart items for the current user
+            $userId = Auth::id();
+            $cart = Cart::where('user_id', $userId)->get();
+
+            // Pass the cart items to the 'cart' view
+            return view('user.cart', compact('cart'));
         } else {
-            return view('/user/login');
+            // Redirect to the login page if the user is not authenticated
+            return redirect('/user/login');
         }
     }
 
