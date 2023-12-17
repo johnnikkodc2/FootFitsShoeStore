@@ -25,7 +25,8 @@
             <hr>
         </div>
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <form method="post" action="{{ route('checkout.update_cart') }}" class="col-md-8">
+                @csrf
                 @if (session('success'))
                     <div class="alert my-4 alert-success alert-dismissible fade show" role="alert">
                         {{session('success')}}
@@ -46,6 +47,7 @@
                         </thead>
                         <tbody>
                             @foreach ($cart as $cart_item)
+                            <input type="hidden" name="cart_id[]" value={{ $cart_item->id }} />
                             <tr>
                                 <td>
                                     <div class="product-img">
@@ -58,7 +60,7 @@
                                 <td>
                                     <div class="button-container">
                                         <button class="cart-qty-minus" type="button" value="-">-</button>
-                                        <input type="text" name="qty" min="1" max={{ $cart_item->product->product_quantity }} class="qty form-control" value={{ $cart_item->quantity }} />
+                                        <input type="text" name="qty[]" min="1" max={{ $cart_item->product->product_quantity }} class="qty form-control" value={{ $cart_item->quantity }} />
                                         <button class="cart-qty-plus" type="button" value="+">+</button>
                                     </div>
                                 </td>
@@ -84,8 +86,8 @@
                     </table>
                   
                 </div>
-                <button class="btn btn-primary btn-lg btn-block" onclick="checkoutNow()">Continue to checkout</button>
-            </div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Continue to checkout</button>
+            </form>
         </div>
     </div>
 

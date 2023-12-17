@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\Products;
 use Illuminate\Support\Facades\Auth;
+use Ramsey\Uuid\Type\Integer;
 
 class CartController extends Controller
 {
@@ -30,7 +31,6 @@ class CartController extends Controller
         ]);
         }
         
-
         return Redirect()->back()->with('success', 'Added to Cart!');
 
         } else {
@@ -58,5 +58,18 @@ class CartController extends Controller
         $product = Products::find($cart->product_id);
         Cart::find($id)->delete();
         return Redirect()->back()->with('success', 'Item (' .$product->product_name .  ') deleted');
+    }
+
+    public function CheckOut (Request $request) {
+        $i = 0; 
+        foreach ($request->cart_id as $id) {
+            $cart = Cart::find($id);
+            $product = Products::find($cart->product_id);
+            Cart::find($id)->update([
+                'quantity' => (int)$request->qty[$i],
+                'price' => ((float)$product->product_price) * $request->qty[$i++]
+            ]);
+        };
+        return Redirect()->route('checkout');
     }
 }

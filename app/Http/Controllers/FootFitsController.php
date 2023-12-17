@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\OrderProducts;
+use App\Models\Orders;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -40,17 +42,18 @@ class FootFitsController extends Controller
     function checkout()
     {
         if (Auth::id()) {
-
-            return view('/user/checkout');
+            $cart = Cart::where('user_id', Auth::id())->get();
+            return view('/user/checkout', compact('cart'));
         } else {
             return view('/user/login');
         }
     }
-    function receipt()
+    function receipt($id)
     {
         if (Auth::id()) {
-
-            return view('/user/receipt');
+            $order = Orders::find($id);
+            $orderProducts = OrderProducts::where('order_id', $order->id)->get();
+            return view('/user/receipt', compact('order', 'orderProducts'));
         } else {
             return view('/user/login');
         }
@@ -58,8 +61,9 @@ class FootFitsController extends Controller
     function myorders()
     {
         if (Auth::id()) {
-
-            return view('/user/myorders');
+            $orders = Orders::where('user_id', Auth::id())->get();
+            $orderProducts = OrderProducts::whereIn('order_id', $orders->pluck('id'))->with('product')->get();
+            return view('/user/myorders', compact('orders', 'orderProducts'));
         } else {
             return view('/user/login');
         }

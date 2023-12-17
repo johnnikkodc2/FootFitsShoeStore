@@ -64,21 +64,23 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="product-details2">
-                            <p>Product Name</p>
-                        </td>
-                        <td>12</td>
-                        <td>red</td>
-                        <td>$2222</td>
-                        <td>1</td>
-                    </tr>
+                    @foreach ($orderProducts as $order_item)
+                        <tr>    
+                            <td class="product-details2">
+                                <p>{{ $order_item->product->product_name }}</p>
+                            </td>
+                            <td>{{ $order_item->product->product_size }}</td>
+                            <td>{{ $order_item->product->product_color }}</td>
+                            <td>{{ $order_item->price }}</td>
+                            <td>{{ $order_item->quantity }}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
 
         <!-- Display Total Price -->
-        <p>Total Price: $1111</p>
+        <p>Total Price: ${{ $order->total_price }}</p>
 
         <!-- Credit Card Information -->
         <h3>Credit Card Information</h3>
@@ -87,10 +89,10 @@
         <!-- Shipping Details -->
         <div class="shipping-details">
             <h3>Shipping Details</h3>
-            <p><strong>Full Name:</strong> John Doe</p>
-            <p><strong>Address:</strong> 123 Main St</p>
-            <p><strong>City:</strong> Example City</p>
-            <p><strong>ZIP Code:</strong> 12345</p>
+            <p><strong>Full Name:</strong> {{ $order->first_name }} {{ $order->last_name }}</p>
+            <p><strong>Address:</strong> {{ $order->address }}</p>
+            <p><strong>City:</strong> {{ $order->city }}</p>
+            <p><strong>ZIP Code:</strong> {{ $order->zip }}</p>
         </div>
 
         <!-- Receipt Information -->

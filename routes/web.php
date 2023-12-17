@@ -3,6 +3,8 @@
 use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FootFitsController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\OrderProductsController;
 use App\Http\Controllers\ProductsController;
 use App\Models\User;
 
@@ -29,7 +31,7 @@ Route::get('/shop', [FootFitsController::class, 'shop'])->name('shop');
 Route::get('/shop', [ProductsController::class, 'index2'])->name('shop');
 Route::get('/cart', [FootFitsController::class, 'cart'])->name('cart');
 Route::get('/checkout', [FootFitsController::class, 'checkout'])->name('checkout');
-Route::get('/receipt', [FootFitsController::class, 'receipt'])->name('receipt');
+Route::get('/receipt/{id}', [FootFitsController::class, 'receipt'])->name('receipt');
 Route::get('/myorders', [FootFitsController::class, 'myorders'])->name('myorders');
 Route::get('/profile', [FootFitsController::class, 'profile'])->name('profile');
 
@@ -51,6 +53,9 @@ Route::get('/productDetails/details/{id}', [ProductsController::class, 'Details'
 Route::post('/productDetails/add_cart/{id}', [CartController::class, 'AddCart'])->name('add.cart');
 Route::get('/productDetails/delete_cart/{id}', [CartController::class, 'DeleteCart']);
 Route::get('/productDetails/edit_cart/{id}', [CartController::class, 'EditCart']);
-Route::post('/productDetails/update_cart/{id}', [CartController::class, 'UpdateCart']);
+Route::get('/productDetails/update_cart/{id}/{quantity}', [CartController::class, 'UpdateCart']);
+Route::post('/productDetails/checkout_cart', [CartController::class, 'Checkout'])->name('checkout.update_cart');
 
+Route::post('/checkout/create_order', [OrderController::class, 'CreateOrder'])->name('create_order');
+Route::get('/myorders/delete_order/{id}', [OrderController::class, 'DeleteOrder']);
 

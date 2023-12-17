@@ -37,28 +37,39 @@
         <div class="row">
           <div class="col-12">
             <div class="list-group mb-5">
-              <div class="list-group-item p-3 bg-snow" style="position: relative;">
-                <div class="row w-100 no-gutters">
-                  <div class="col-6 col-md">
-                    <h6 class="text-charcoal mb-0 w-100">Order Number</h6>
-                    <a href="" class="text-pebble mb-0 w-100 mb-2 mb-md-0">#A915AFLE4FO</a>
-                  </div>
-                  <div class="col-6 col-md">
-                    <h6 class="text-charcoal mb-0 w-100">Date</h6>
-                    <p class="text-pebble mb-0 w-100 mb-2 mb-md-0">Aug 5th, 2017</p>  
-                  </div>
-                  <div class="col-6 col-md"> 
-                    <h6 class="text-charcoal mb-0 w-100">Total</h6>
-                    <p class="text-pebble mb-0 w-100 mb-2 mb-md-0">$19.54</p> 
-                  </div>
-                  <div class="col-6 col-md"> 
-                    <h6 class="text-charcoal mb-0 w-100">Shipped To</h6>
-                    <p class="text-pebble mb-0 w-100 mb-2 mb-md-0">Late M. Night</p> 
-                  </div>
-                 
+              <div class="table-responsive">
+                  <table id="myTable" class="table text-center bg-white">
+                      <thead>
+                          <tr>
+                              <th>Order Number</th>
+                              <th>Date</th>
+                              <th>Total</th>
+                              <th>Status</th>
+                              <th></th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          @foreach ($orders as $order_item)
+                          <tr>
+                              <td>
+                                  <a href="{{ url('receipt/' . $order_item->id) }}">#{{ $order_item->id }}</a>
+                              </td>
+                              <td>
+                                  <p>{{ $order_item->created_at }}</p>
+                              </td>
+                              <td>$ <span id="amount" class="amount">{{ $order_item->total_price }}</span></td>
+                              <td>{{ $order_item->status }}</td>
+                              <td>
+                                  <a class="btn btn-danger text-white" onclick="deleteCartItem({{ $order_item->id }})" >
+                                      Cancel Order
+                                  </a>
+                              </td>
+                          </tr>
+                          @endforeach 
+                      </tbody>
+                  </table> 
                 </div>
-                
-              </div>
+
               <div class="list-group-item p-3 bg-white">
                 <div class="row no-gutters">
                   <div class="col-12 col-md-9 pr-0 pr-md-3">
@@ -68,75 +79,31 @@
                     </div>
                   </div>
              
-                  <div class="row no-gutters mt-3">
-                    <div class="col-3 col-md-1">
-                      <img class="img-fluid pr-3" src="https://tanga2.imgix.net/https%3A%2F%2Fs3.amazonaws.com%2Ftanga-images%2Ffc79d08c12dc.jpeg?ixlib=rails-2.1.1&fit=crop&w=500&h=500&auto=format%2Ccompress&cs=srgb&s=c9a50d474788f2658d13b21aa62edd6c" alt="">
-                    </div>
-                    <div class="col-9 col-md-8 pr-0 pr-md-3">
-                      <h6 class="text-charcoal mb-2 mb-md-1">
-                        <a href="" class="text-charcoal">1 x URGE Basics iPhone 6/iPhone 6 Plus Magnetic Wallet Case</a>
-                      </h6>
-                      <ul class="list-unstyled text-pebble mb-2 small">
-                        <li class="">
-                          <b>Color:</b> Red
-                        </li>
-                        <li class="">
-                          <b>Size:</b> L
-                        </li>
-                      </ul>
-                      <h6 class="text-charcoal text-left mb-0 mb-md-2"><b>$19.54</b></h6>
-                    </div>
-                    <div class="col-12 col-md-3 hidden-sm-down">
-                      <a href="" class="btn btn-secondary w-100 mb-2">Buy It Again</a>
-                     
-                    </div>
-                  </div>
-                  <div class="row no-gutters mt-3">
-                    <div class="col-3 col-md-1">
-                      <img class="img-fluid pr-3" src="https://tanga2.imgix.net/https%3A%2F%2Fs3.amazonaws.com%2Ftanga-images%2Ffc79d08c12dc.jpeg?ixlib=rails-2.1.1&fit=crop&w=500&h=500&auto=format%2Ccompress&cs=srgb&s=c9a50d474788f2658d13b21aa62edd6c" alt="">
-                    </div>
-                    <div class="col-9 col-md-8 pr-0 pr-md-3">
-                      <h6 class="text-charcoal mb-2 mb-md-1">
-                        <a href="" class="text-charcoal">1 x URGE Basics iPhone 6/iPhone 6 Plus Magnetic Wallet Case</a>
-                      </h6>
-                      <ul class="list-unstyled text-pebble mb-2 small">
-                        <li class="">
-                          <b>Color:</b> Red
-                        </li>
-                        <li class="">
-                          <b>Size:</b> L
-                        </li>
-                      </ul>
-                      <h6 class="text-charcoal text-left mb-0 mb-md-2"><b>$19.54</b></h6>
-                    </div>
-                    <div class="col-12 col-md-3 hidden-sm-down">
-                      <a href="" class="btn btn-secondary w-100 mb-2">Buy It Again</a>
-                
-                    </div>
-                  </div>
-                  <div class="row no-gutters mt-3">
-                    <div class="col-3 col-md-1">
-                      <img class="img-fluid pr-3" src="https://tanga2.imgix.net/https%3A%2F%2Fs3.amazonaws.com%2Ftanga-images%2Ffc79d08c12dc.jpeg?ixlib=rails-2.1.1&fit=crop&w=500&h=500&auto=format%2Ccompress&cs=srgb&s=c9a50d474788f2658d13b21aa62edd6c" alt="">
-                    </div>
-                    <div class="col-9 col-md-8 pr-0 pr-md-3">
-                      <h6 class="text-charcoal mb-2 mb-md-1">
-                        <a href="" class="text-charcoal">1 x URGE Basics iPhone 6/iPhone 6 Plus Magnetic Wallet Case</a>
-                      </h6>
-                      <ul class="list-unstyled text-pebble mb-2 small">
-                        <li class="">
-                          <b>Color:</b> Red
-                        </li>
-                        <li class="">
-                          <b>Size:</b> L
-                        </li>
-                      </ul>
-                      <h6 class="text-charcoal text-left mb-0 mb-md-2"><b>$19.54</b></h6>
-                    </div>
-                    <div class="col-12 col-md-3 hidden-sm-down">
-                      <a href="" class="btn btn-secondary w-100 mb-2">Buy It Again</a>
-          
-                    </div>
-                  </div>
+                  @foreach ($orderProducts as $order_item)
+                      <div class="row gap-4 no-gutters mt-3">
+                        <div class="col-6 col-md-1">
+                          <img class="img-fluid pr-3" src="https://tanga2.imgix.net/https%3A%2F%2Fs3.amazonaws.com%2Ftanga-images%2Ffc79d08c12dc.jpeg?ixlib=rails-2.1.1&fit=crop&w=500&h=500&auto=format%2Ccompress&cs=srgb&s=c9a50d474788f2658d13b21aa62edd6c" alt="">
+                        </div>
+                        <div class="col-9 col-md-8 pr-0 pr-md-3">
+                          <h6 class="text-charcoal mb-2 mb-md-1">
+                            <a href="" class="text-charcoal">{{ $order_item->product->product_name }}</a>
+                            <a href="" class="text-charcoal">1 x URGE Basics iPhone 6/iPhone 6 Plus Magnetic Wallet Case</a>
+                          </h6>
+                          <ul class="list-unstyled text-pebble mb-2 small">
+                            <li class="">
+                              <b>Color:</b> {{ $order_item->product->product_color }}
+                            </li>
+                            <li class="">
+                              <b>Size:</b> {{ $order_item->product->product_size }}
+                            </li>
+                          </ul>
+                          <h6 class="text-charcoal text-left mb-0 mb-md-2"><b>${{ $order_item->product->product_price }}</b></h6>
+                        </div>
+                        <div class="col-12 col-md-3 hidden-sm-down">
+                          <a href="" class="btn btn-secondary w-100 mb-2">Buy It Again</a> 
+                        </div>
+                      </div>
+                  @endforeach  
                 </div>
               </div>
             </div>
@@ -200,9 +167,9 @@
                 </div>
               </div>
             </div>
-          </div> -->
+          </div>
         </div>
-      </div>
+      </div> -->
       
       <div class="p-3 hidden-md-up"></div>
       
@@ -213,6 +180,15 @@
 
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script>
+        function deleteCartItem(orderId) {
+            var isConfirmed = confirm("Are you sure you want to cancel your order?");
+
+            if (isConfirmed) {
+                window.location.href = "{{ url('myorders/delete_order/') }}" + '/' + orderId;
+            }
+        }
+    </script>
 </body>
 
 </html>
