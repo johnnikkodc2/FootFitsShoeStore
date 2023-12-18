@@ -88,9 +88,10 @@ class FootFitsController extends Controller
             // Fetch the cart items for the current user
             $userId = Auth::id();
             $cart = Cart::where('user_id', $userId)->get();
+            $deletedCart = Cart::onlyTrashed()->where('user_id', $userId)->get();
 
             // Pass the cart items to the 'cart' view
-            return view('user.cart', compact('cart'));
+            return view('user.cart', compact('cart', 'deletedCart'));
         } else {
             // Redirect to the login page if the user is not authenticated
             return redirect('/user/login');

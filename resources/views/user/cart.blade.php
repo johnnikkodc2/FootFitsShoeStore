@@ -60,7 +60,8 @@
                                 <td>
                                     <div class="button-container">
                                         <button class="cart-qty-minus" type="button" value="-">-</button>
-                                        <input type="text" name="qty[]" min="1" max={{ $cart_item->product->product_quantity }} class="qty form-control" value={{ $cart_item->quantity }} />
+                                        <input type="text" name="qty[]" min="1" max="{{ $cart_item->product->product_quantity }}" class="qty form-control" value="{{ $cart_item->quantity }}" />
+                                        
                                         <button class="cart-qty-plus" type="button" value="+">+</button>
                                     </div>
                                 </td>
@@ -86,15 +87,71 @@
                     </table>
                   
                 </div>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">Continue to checkout</button>
+                
+                <button type="submit" class="btn btn-primary btn-lg btn-block" {{ $cart->isEmpty() ? 'disabled' : '' }}>
+                    Continue to checkout
+                </button>
             </form>
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-8">
+                    <h2 class="intro-text text-center">
+                        <strong>Recently Deleted</strong>
+                    </h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Name</th>
+
+
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($deletedCart as $deleted_item)
+                            <tr>
+                                <td>
+                                    <div class="product-img">
+                                        <p>{{ $deleted_item->product_id }}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p>{{ $deleted_item->product->product_name }}</p>
+                                </td>
+                              
+                              
+                                <td>
+                                    <a href="{{ url('/cart/restore/'.$deleted_item->product_id) }}" class="btn btn-success">
+                                        Recover
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="#" class="btn btn-danger" onclick="confirmForceDelete({{ $deleted_item->product_id }})">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </td>
+                                
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 
     <footer>
         @include('includes.footer')
     </footer>
-
+    <script>
+        function confirmForceDelete(productID) {
+            var isConfirmed = confirm("This action will permanently delete the item. Are you sure?");
+    
+            if (isConfirmed) {
+                window.location.href = "{{ url('cart/forceDelete/') }}" + '/' + productID;
+            }
+        }
+    </script>
     <script>
     	function formatPrice(input) {
 			// Remove non-numeric characters

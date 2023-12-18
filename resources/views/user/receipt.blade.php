@@ -80,11 +80,11 @@
         </div>
 
         <!-- Display Total Price -->
-        <p>Total Price: ${{ $order->total_price }}</p>
+        <p>Total Price: &#8369;{{ $order->total_price }}</p>
 
         <!-- Credit Card Information -->
         <h3>Credit Card Information</h3>
-        <p class="credit-card">Credit Card Number: **** **** **** 1234</p>
+        <p class="credit-card">Credit Card Number: {{ $order->payment_cardnumber }}</p>
 
         <!-- Shipping Details -->
         <div class="shipping-details">
@@ -98,8 +98,9 @@
         <!-- Receipt Information -->
         <div class="receipt-info">
             <h3>Receipt Information</h3>
-            <p><strong>Receipt Number:</strong> 123456</p>
-            <p><strong>Receipt Date:</strong> January 1, 2023</p>
+            <p><strong>Receipt Number:</strong> {{ $order->id }}</p>
+            <p><strong>Receipt Date:</strong> <span id="receiptDate"></span></p>
+
         </div>
 
         <!-- Thank You Message -->
@@ -110,8 +111,33 @@
         <button onclick="printReceipt()" class="btn btn-primary">Print Receipt</button>
         <button onclick="gohome()" class="btn btn-primary">View Orders</button>
     </div>
-
-
+    <script>
+    	function formatPrice(input) {
+			// Remove non-numeric characters
+			let value = input.value.replace(/\D/g, '');
+	
+			// Add commas for every 3 digits
+			value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	
+			// Update the input value
+			input.value = value;
+		}
+</script>
+    <script>
+        // Get the current date
+        var currentDate = new Date();
+    
+        // Format the date (you can customize the format as needed)
+        var formattedDate = currentDate.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+    
+        // Display the formatted date in the span with id "receiptDate"
+        document.getElementById('receiptDate').textContent = formattedDate;
+    </script>
+    
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script>

@@ -49,6 +49,8 @@ Route::get('/manageproducts/delete/{id}', [ProductsController::class, 'Delete'])
 Route::get('/editproducts/edit/{id}', [ProductsController::class, 'Edit']);
 Route::post('/editProducts/update/{id}', [ProductsController::class, 'Update'])->name('update.product');
 Route::get('/productDetails/details/{id}', [ProductsController::class, 'Details']);
+Route::get('/cart/restore/{id}', [CartController::class, 'restore'])->name('cart.restore');
+Route::get('/cart/forceDelete/{id}', [CartController::class, 'ForceDelete'])->name('forceDelete.cart');
 
 Route::post('/productDetails/add_cart/{id}', [CartController::class, 'AddCart'])->name('add.cart');
 Route::get('/productDetails/delete_cart/{id}', [CartController::class, 'DeleteCart']);

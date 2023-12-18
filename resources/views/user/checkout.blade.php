@@ -28,7 +28,7 @@
           <div class="col-md-4 order-md-2 mb-4">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
               <span class="text-muted">Your cart</span>
-              <span class="badge badge-secondary badge-pill">3</span>
+              <span class="badge badge-secondary badge-pill">{{ count($cart) }}</span>
             </h4>
             <ul class="list-group mb-3">
               @php
@@ -87,7 +87,7 @@
          
       
               <div class="mb-3">
-                <label for="email">Email <span class="text-muted">(Optional)</span></label>
+                <label for="email">Email </label>
                 <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" placeholder="you@example.com">
                 @if ($errors->has('email'))
                     @foreach ($errors->get('email') as $error)
@@ -111,8 +111,8 @@
               </div>
       
               <div class="mb-3">
-                <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-                <input type="text" class="form-control" id="address2" name="address_2" value="{{ old('address_2') }}" placeholder="Apartment or suite">
+                <label for="address2">Address 2 </label>
+                <input type="text" class="form-control" id="address2" name="address_2" value="{{ old('address_2') }}" placeholder="Apartment or suite" required>
                 @if ($errors->has('address_2'))
                   @foreach ($errors->get('address_2') as $error)
                       <div class="alert alert-danger">
@@ -224,7 +224,8 @@
                   </div>
                   <div class="col-md-3 mb-3">
                       <label for="cc-cvv">CVV</label>
-                      <input type="text" name="cvv" class="form-control" id="cc-cvv" value="{{ old('cvv') }}" placeholder="" required>
+                      <input type="text" name="cvv" class="form-control" id="cc-cvv" value="{{ old('cvv') }}" placeholder="" maxlength="3" required>
+
                       <div class="invalid-feedback">
                           Security code required
                       </div>
@@ -244,14 +245,7 @@
           </div>
         </div>
       
-        <footer class="my-5 pt-5 text-muted text-center text-small">
-          <p class="mb-1">&copy; 2017-2019 Company Name</p>
-          <ul class="list-inline">
-            <li class="list-inline-item"><a href="#">Privacy</a></li>
-            <li class="list-inline-item"><a href="#">Terms</a></li>
-            <li class="list-inline-item"><a href="#">Support</a></li>
-          </ul>
-        </footer>
+      
       </div>
 
     <footer>

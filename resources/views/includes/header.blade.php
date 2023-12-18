@@ -83,11 +83,13 @@
 @auth
   
 
-    <div class="nav-item">
-        <a class="nav-link" href="{{ route('cart') }}">
-            <i class="fas fa-shopping-cart"></i>
-        </a>
-    </div>
+<div class="nav-item">
+  <a class="nav-link" href="{{ route('cart') }}">
+      <i class="fas fa-shopping-cart"> <span class="badge badge-danger">{{ count($cart) }}</span>
+      </a></i>
+         
+</div>
+
 
 
 </div>

@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Redirect;
 class OrderController extends Controller
 {
     //
-    public function CreateOrder (Request $request) {
+    public function CreateOrder(Request $request)
+    {
         $cart = Cart::where('user_id', Auth::id())->get();
         $user = Auth::user();
         $totalPrice = 0;
@@ -41,22 +42,22 @@ class OrderController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         } else {
-             $order = Orders::create([
-            'user_id' => $user->id,
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'email' => $request->email,
-            'address' => $request->address,
-            'address_2' => $request->address_2,
-            'region' => $request->region,
-            'city' => $request->city,
-            'zip' => $request->zip,
-            'payment_namecard' => $request->payment_namecard,
-            'payment_cardnumber' => $request->payment_cardnumber,
-            'expiration' => $request->expiration,
-            'cvv' => $request->cvv,
-            'total_price' => $totalPrice,
-            'status' => 'Processing'
+            $order = Orders::create([
+                'user_id' => $user->id,
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'email' => $request->email,
+                'address' => $request->address,
+                'address_2' => $request->address_2,
+                'region' => $request->region,
+                'city' => $request->city,
+                'zip' => $request->zip,
+                'payment_namecard' => $request->payment_namecard,
+                'payment_cardnumber' => $request->payment_cardnumber,
+                'expiration' => $request->expiration,
+                'cvv' => $request->cvv,
+                'total_price' => $totalPrice,
+                'status' => 'Processing'
             ]);
 
             $cart = Cart::where('user_id', Auth::id())->get();
@@ -71,15 +72,17 @@ class OrderController extends Controller
 
             $i = 0;
             foreach ($cart as $cart_item) {
-                Cart::find($cart_item->id)->delete();
+                Cart::find($cart_item->id)->forceDelete();
                 $i++;
-            };
+            }
+            ;
 
-            return Redirect()->to('receipt/' . $order->id);   
+            return Redirect()->to('receipt/' . $order->id);
         }
     }
 
-    public function DeleteOrder ($id) {
+    public function DeleteOrder($id)
+    {
         Orders::find($id)->delete();
         OrderProducts::where('order_id', $id)->delete();
         return Redirect()->back()->with('success', 'Order Cancelled');
