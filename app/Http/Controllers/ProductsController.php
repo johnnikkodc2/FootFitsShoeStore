@@ -84,5 +84,33 @@ Successfully');
 
         return Redirect()->back();
 
+
     }
+    public function restore($id)
+    {
+        $products = Products::withTrashed()->find($id);
+
+        if ($products) {
+
+            $products->restore();
+            return redirect()->back()->with('success', 'Product has been restored successfully.');
+        } else {
+
+            return redirect()->back()->with('error', 'Product not found.');
+        }
+    }
+    public function ForceDelete($id)
+    {
+        $products = Products::withTrashed()->find($id);
+
+        if ($products) {
+            $products->forceDelete();
+            return redirect()->back()->with('success', 'Product has been force deleted successfully.');
+        } else {
+
+            return redirect()->back()->with('error', 'Product not found.');
+        }
+    }
+
+
 }

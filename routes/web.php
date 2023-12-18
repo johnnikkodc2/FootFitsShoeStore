@@ -45,6 +45,7 @@ Route::get('/manageProductList', [FootFitsController::class, 'manageProductList'
 
 Route::get('/manageproducts', [ProductsController::class, 'index'])->name('AllProducts');
 Route::post('/manageproducts', [ProductsController::class, 'store'])->name('AllProducts');
+
 Route::get('/manageproducts/delete/{id}', [ProductsController::class, 'Delete'])->name('delete.product');
 Route::get('/editproducts/edit/{id}', [ProductsController::class, 'Edit']);
 Route::post('/editProducts/update/{id}', [ProductsController::class, 'Update'])->name('update.product');

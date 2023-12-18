@@ -124,6 +124,7 @@ class FootFitsController extends Controller
     }
     function manageProducts()
     {
+
         return view('/admin/manageproducts');
     }
     function editProducts()
