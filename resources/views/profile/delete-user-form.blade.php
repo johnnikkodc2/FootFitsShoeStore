@@ -13,9 +13,9 @@
         </div>
 
         <div class="mt-5">
-            <x-danger-button wire:click="confirmUserDeletion" wire:loading.attr="disabled">
+            <button wire:click="confirmUserDeletion" wire:loading.attr="disabled" style="background-color:red; color:white; padding: 5px 15px 5px 15px; border: none">
                 {{ __('Delete Account') }}
-            </x-danger-button>
+            </button>
         </div>
 
         <!-- Delete User Confirmation Modal -->
@@ -44,9 +44,9 @@
                     {{ __('Cancel') }}
                 </x-secondary-button>
 
-                <x-danger-button class="ml-3" wire:click="deleteUser" wire:loading.attr="disabled">
+                <button class="ml-3" wire:click="deleteUser" wire:loading.attr="disabled" style="background-color:red; color:white; padding: 5px 15px 5px 15px; border: none">
                     {{ __('Delete Account') }}
-                </x-danger-button>
+                </button>
             </x-slot>
         </x-dialog-modal>
     </x-slot>

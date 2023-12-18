@@ -38,6 +38,12 @@
           <div class="col-12">
             <div class="list-group mb-5">
               <div class="table-responsive">
+                  @if (session('success'))
+                    <div class="alert my-2 alert-primary alert-dismissible fade show" role="alert">
+                        {{session('success')}}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                  @endif
                   <table id="myTable" class="table text-center bg-white">
                       <thead>
                           <tr>

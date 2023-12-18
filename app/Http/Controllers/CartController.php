@@ -17,24 +17,24 @@ class CartController extends Controller
             $product = Products::find($id);
             $cart = Cart::where('product_id', $id)->first();
 
-        if ($cart) {
-            Cart::where('product_id', $id)->first()->update([
-            'quantity' => $request->quantity,
-            'price' => ((float)$product->product_price) * $request->quantity,
-        ]);
-        } else {
-            Cart::create([
-            'user_id' => $user->id,
-            'product_id' => $product->id,
-            'quantity' => $request->quantity,
-            'price' => ((float)$product->product_price) * $request->quantity,
-        ]);
-        }
-        
-        return Redirect()->back()->with('success', 'Added to Cart!');
+            if ($cart) {
+                Cart::where('product_id', $id)->first()->update([
+                'quantity' => $request->quantity,
+                'price' => ((float)$product->product_price) * $request->quantity,
+            ]);
+            } else {
+                Cart::create([
+                'user_id' => $user->id,
+                'product_id' => $product->id,
+                'quantity' => $request->quantity,
+                'price' => ((float)$product->product_price) * $request->quantity,
+                ]);
+            }
+            
+            return Redirect()->back()->with('success', 'Added to Cart!');
 
         } else {
-            return redirect('/login');
+            return Redirect('/login')->with('message', 'Must login first to add to cart');
         }
     }
 

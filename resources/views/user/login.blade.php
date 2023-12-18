@@ -44,6 +44,13 @@
                       <div class="d-flex align-items-center mb-3 pb-1">
                         <img src="img/logo.png" alt="Your Logo" style="height:100px;width:100px;display: block; margin-left: auto; margin-right: auto; margin-bottom:0px">
                       </div>
+
+                      @if (session('message'))
+                          <div class="alert my-4 alert-primary alert-dismissible fade show" role="alert">
+                              {{ session('message') }}
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          </div>
+                      @endif
     
                       <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
     

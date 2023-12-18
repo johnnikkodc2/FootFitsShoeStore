@@ -28,7 +28,7 @@
             <form method="post" action="{{ route('checkout.update_cart') }}" class="col-md-8">
                 @csrf
                 @if (session('success'))
-                    <div class="alert my-4 alert-success alert-dismissible fade show" role="alert">
+                    <div class="alert my-4 alert-primary alert-dismissible fade show" role="alert">
                         {{session('success')}}
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
