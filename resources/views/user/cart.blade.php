@@ -67,7 +67,7 @@
                                 <td>
                                     <input type="text" value={{ $cart_item->product->product_price }} class="price form-control" disabled>
                                 </td>
-                                <td align="right">$ <span id="amount" class="amount">0</span></td>
+                                <td align="right">&#8369; <span id="amount" class="amount">0</span></td>
                                 <td>
                                     <a class="btn" onclick="deleteCartItem({{ $cart_item->id }})" >
                                         <i class="fas fa-trash"></i>

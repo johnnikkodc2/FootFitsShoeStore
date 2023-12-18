@@ -93,7 +93,7 @@
                         <div class="col-9 col-md-8 pr-0 pr-md-3">
                           <h6 class="text-charcoal mb-2 mb-md-1">
                             <a href="" class="text-charcoal">{{ $order_item->product->product_name }}</a>
-                            <a href="" class="text-charcoal">1 x URGE Basics iPhone 6/iPhone 6 Plus Magnetic Wallet Case</a>
+
                           </h6>
                           <ul class="list-unstyled text-pebble mb-2 small">
                             <li class="">
@@ -115,68 +115,7 @@
             </div>
           </div>
           
-      <!--     <div class="col-12 col-md-4">
-            <div class="pt-5 pt-md-0">
-              <div class="list-group mb-3">
-                <div class="list-group-item p-3 bg-snow">
-                  <h6 class="mb-0">Order Summary</h6>
-                </div>
-                <div class="list-group-item py-2 px-3 bg-white">
-                  <div class="row w-100 no-gutters">
-                    <div class="col-6 text-pebble">
-                      Subtotal
-                    </div>
-                    <div class="col-6 text-right text-charcoal">
-                      $54.97
-                    </div>
-                  </div>
-                </div>
-                <div class="list-group-item py-2 px-3 bg-white">
-                  <div class="row w-100 no-gutters">
-                    <div class="col-6 text-pebble">
-                      Sales Tax
-                    </div>
-                    <div class="col-6 text-right text-charcoal">
-                      $4.30
-                    </div>
-                  </div>
-                </div>
-                <div class="list-group-item py-2 px-3 bg-white">
-                  <div class="row w-100 no-gutters">
-                    <div class="col-6 text-pebble">
-                      Shipping
-                    </div>
-                    <div class="col-6 text-right text-charcoal">
-                      FREE
-                    </div>
-                  </div>
-                </div>
-                <div class="list-group-item py-2 px-3 bg-white">
-                  <div class="row w-100 no-gutters">
-                    <div class="col-8 text-pebble">
-                      Gift certificate
-                    </div>
-                    <div class="col-4 text-right text-red text-charcoal">
-                      -$5.55
-                    </div>
-                  </div>
-                </div>
-                <div class="list-group-item py-2 px-3 bg-snow">
-                  <div class="row w-100 no-gutters">
-                    <div class="col-8 text-charcoal">
-                      <b>Total</b>
-                    </div>
-                    <div class="col-4 text-right text-green">
-                      <b>$53.65</b>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-      
+    
       <div class="p-3 hidden-md-up"></div>
       
 
