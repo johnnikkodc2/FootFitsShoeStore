@@ -51,7 +51,7 @@
                                                         <td>{{ $order_item->address  }}</td>
                                                             <td>{{ $order_item->status }}</td>
                                                             <td>					
-                                                                <a href="{{url('/editorderstatus/edit/'.$order_item->id)}}">
+                                                                <a href="{{url('/editorderstatus/edit/'.$order_item->id)}}" class="btn btn-info">
                                                                     Edit
                                                                 </a>
                                                             </td>
