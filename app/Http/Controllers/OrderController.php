@@ -90,7 +90,7 @@ class OrderController extends Controller
     public function EditOrder($id)
     {
         $order = Orders::find($id);
-        return view('admin.editorderstatus', compact('orders'));
+        return view('admin.editorderstatus', compact('order'));
     }
 
 

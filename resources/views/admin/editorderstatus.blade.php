@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-
+	@include('includes.adminHeader')
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,11 +32,7 @@
 <body  style="background:purple">
 
 
-    <div class="brand">FootFits</div>
-    <div class="address-bar"> Your Ultimate Destination for <strong>Stylish and Comfortable Footwear</strong></div>
-
-	
-
+    
 	<div class="container">
 
 		<div class="row">
@@ -51,49 +47,79 @@
 				
 							<form method="POST" action="{{url('editOrders/update/'.$order->id)}}" >
 								@csrf
+								
+							  <h3>Credit Card Information</h3>
+							  <p class="credit-card">Credit Card Number: {{ $order->payment_cardnumber }}</p>
+					  
+							  <!-- Shipping Details -->
+							  <div class="shipping-details">
+								  <h3>Shipping Details</h3>
+								  <p><strong>Full Name:</strong> {{ $order->first_name }} {{ $order->last_name }}</p>
+								  <p><strong>Address:</strong> {{ $order->address }}</p>
+								  <p><strong>City:</strong> {{ $order->city }}</p>
+								  <p><strong>ZIP Code:</strong> {{ $order->zip }}</p>
+							  </div>
+					  
+							  <!-- Receipt Information -->
+							  <div class="receipt-info">
+								  <h3>Receipt Information</h3>
+								  <p><strong>Receipt Number:</strong> {{ $order->id }}</p>
+								  <p><strong>Receipt Date:</strong> {{ $order->created_at }}</p>
+					  
+							  </div>
+								
+								
 								<div class="mb-3">
-									<label for="product_name" class="form-label">Order ID</label>
-									<input type="text" class="form-control" name="product_name" id="product_name"
-                                    value="" disabled>
+									<label for="product_category" class="form-label">Order Status		</label>
+									<select class="form-control" name="product_brand" id="product_brand" required>
+										<option value="Processing">Processing</option>
+										<option value="Out for delivery">Out for Delivery</option>
+										<option value="Shipped">Shipped</option>
+										<option value="Completed">Order Complete</option>
+								
+									</select>
 								</div>
+
+
+
 								<div class="mb-3">
-									<label for="product_brand" class="form-label">Customer ID</label>
-									<input type="text" class="form-control" name="product_brand" id="product_brand"
-                                    value="" disabled>
-								</div>
+								<button type="submit" class="btn btn-primary">Submit</button>
+							</div>
 								<div class="mb-3">
-									<label for="product_price" class="form-label">Product Name</label>
-									<input type="text" class="form-control" name="product_price" id="product_price"
-                                    value="" disabled>
-								</div>
-								<div class="mb-3">
-									<label for="product_size" class="form-label">Product Size</label>
-								
-									{{-- <div class="horizontal-radio-group">
-										<div class="form-check">
-											<input class="form-check-input" type="radio" name="product_size" id="size_10" value="10" required {{$products->product_size == 10 ? 'checked' : ''}}>
-											<label class="form-check-label" for="size_10">10</label>
-										</div>
-								
-										<div class="form-check">
-											<input class="form-check-input" type="radio" name="product_size" id="size_11" value="11" required {{$products->product_size == 11 ? 'checked' : ''}}>
-											<label class="form-check-label" for="size_11">11</label>
-										</div>
-								
-										<div class="form-check">
-											<input class="form-check-input" type="radio" name="product_size" id="size_12" value="12" required {{$products->product_size == 12 ? 'checked' : ''}}>
-											<label class="form-check-label" for="size_12">12</label>
-										</div>
-								
-										<div class="form-check">
-											<input class="form-check-input" type="radio" name="product_size" id="size_13" value="13" required {{$products->product_size == 13 ? 'checked' : ''}}>
-											<label class="form-check-label" for="size_13">13</label>
-										</div>
-										<div class="form-check">
-											<input class="form-check-input" type="radio" name="product_size" id="size_14" value="14" required {{$products->product_size == 14 ? 'checked' : ''}}>
-											<label class="form-check-label" for="size_14">14</label>
-										</div>
-										<div class="form-check">
-											<input class="form-check-input" type="radio" name="product_size" id="size_15" value="15" required {{$products->product_size == 15 ? 'checked' : ''}}>
-											<label class="form-check-label" for="size_15">15</label>
-										</div>
+								<button class="btn btn-primary" onclick="goBack()">Go Back</button>
+							</div>
+							</form>
+					
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!-- /.container -->
+
+
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script>
+		$(document).ready(function () {
+
+		});
+	</script>
+ <script>
+	function goBack() {
+		window.history.back();
+	}
+</script>
+</body>
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<p>Copyright &copy; FootFits 2023</p>
+			</div>
+		</div>
+	</div>
+</footer>
+</html>
