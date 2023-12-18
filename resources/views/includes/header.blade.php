@@ -85,7 +85,7 @@
 
 <div class="nav-item">
   <a class="nav-link" href="{{ route('cart') }}">
-      <i class="fas fa-shopping-cart"> <span class="badge badge-danger">{{ count($cart) }}</span>
+      <i class="fas fa-shopping-cart"> <span class="badge badge-danger">1</span>
       </a></i>
          
 </div>

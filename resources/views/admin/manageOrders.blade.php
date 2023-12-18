@@ -31,18 +31,32 @@
                         <table border="5px" class="table">
                             <tr style="text-align: center; color: Black; font-weight: bold;">
                                 <td>Order ID</td>
-                                <td>Customer ID</td>
+                                <td>Customer Name</td>
                                 <td>Product Name</td>
-                                <td>Product Brand</td>
                                 <td>Product Size</td>
-                                <td>Product Color</td>
                                 <td>Product Price</td>
                                 <td>Date Ordered</td>
+                                <td>Shipping Details</td>
+                                <td>Order Status</td>
                                 <td>Action</td>
                             </tr>
-
-                            
+                            @foreach ($orders as $order_item)
+                            <tr>
+                                <td>{{ $order_item->id }}</td>
+                                    <td>{{ $order_item->first_name }} {{ $order_item->last_name }}</td>
+                                        <td></td>
+                                            <td></td>
+                                                <td></td>
+                                                    <td>{{ $order_item->created_at }}</td>
+                                                        <td>{{ $order_item->address  }}</td>
+                                                            <td>{{ $order_item->status }}</td>
+                                                            <td>					
+                                                                <a href="{{url('/editorderstatus/edit/'.$order_item->id)}}">
+                                                                    Edit
+                                                                </a>
+                                                            </td>
                             </tr>
+                            @endforeach
                         </table>
                     </div>
 

@@ -112,7 +112,7 @@
                             <tr>
                                 <td>
                                     <div class="product-img">
-                                        <p>{{ $deleted_item->product_id }}</p>
+                                        <p>{{ $deleted_item->id }}</p>
                                     </div>
                                 </td>
                                 <td>

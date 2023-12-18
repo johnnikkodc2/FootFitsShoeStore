@@ -37,7 +37,7 @@
                         larger foot sizes. Welcome to FootFits, where footwear meets perfection and inclusivity reigns
                         supreme. At FootFits, we are dedicated to providing an unparalleled shopping experience for
                         individuals with larger shoe sizes. Catering to both men and women, our expansive collection
-                        showcases sizes starting from 12 US for men and 8 US for women, ensuring that nobody has to
+                        showcases sizes starting from 10 US for men and 8 US for women, ensuring that nobody has to
                         compromise on style or comfort due to limited options.
                     </p>
                     <p>Customers, the heartbeat of FootFits, are granted a range of versatile features to enhance their

@@ -87,4 +87,11 @@ class OrderController extends Controller
         OrderProducts::where('order_id', $id)->delete();
         return Redirect()->back()->with('success', 'Order Cancelled');
     }
+    public function EditOrder($id)
+    {
+        $order = Orders::find($id);
+        return view('admin.editorderstatus', compact('orders'));
+    }
+
+
 }

@@ -118,7 +118,9 @@ class FootFitsController extends Controller
     }
     function manageOrders()
     {
-        return view('/admin/manageOrders');
+        $orders = Orders::all();
+        return view('/admin/manageOrders', compact('orders'));
+
     }
     function manageProducts()
     {
@@ -127,6 +129,10 @@ class FootFitsController extends Controller
     function editProducts()
     {
         return view('/admin/editProducts');
+    }
+    function editorderstatus()
+    {
+        return view('/admin/editorderstatus');
     }
     function manageProductList()
     {
