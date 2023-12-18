@@ -121,12 +121,12 @@
                               
                               
                                 <td>
-                                    <a href="{{ url('/cart/restore/'.$deleted_item->product_id) }}" class="btn btn-success">
+                                    <a href="{{ url('/cart/restore/'.$deleted_item->id) }}" class="btn btn-success">
                                         Recover
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="#" class="btn btn-danger" onclick="confirmForceDelete({{ $deleted_item->product_id }})">
+                                    <a href="#" class="btn btn-danger" onclick="confirmForceDelete({{ $deleted_item->id }})">
                                         <i class="fas fa-trash-alt"></i>
                                     </a>
                                 </td>
