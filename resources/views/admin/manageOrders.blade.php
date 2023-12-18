@@ -32,29 +32,34 @@
                             <tr style="text-align: center; color: Black; font-weight: bold;">
                                 <td>Order ID</td>
                                 <td>Customer Name</td>
-                                <td>Product Name</td>
+                                <td>Order Details</td>
+                                {{-- <td>Product Name</td>
                                 <td>Product Size</td>
-                                <td>Product Price</td>
+                                <td>Product Price</td> --}}
+                                <td>Total Amount</td>
                                 <td>Date Ordered</td>
                                 <td>Shipping Details</td>
                                 <td>Order Status</td>
                                 <td>Action</td>
                             </tr>
                             @foreach ($orders as $order_item)
-                            <tr>
+                            <tr class="text-center">
                                 <td>{{ $order_item->id }}</td>
                                     <td>{{ $order_item->first_name }} {{ $order_item->last_name }}</td>
+                                        {{-- <td>{{ $order_item->orderProducts->product->product_name }}</td> --}}
+                                        {{-- <td></td>
                                         <td></td>
-                                            <td></td>
-                                                <td></td>
-                                                    <td>{{ $order_item->created_at }}</td>
-                                                        <td>{{ $order_item->address  }}</td>
-                                                            <td>{{ $order_item->status }}</td>
-                                                            <td>					
-                                                                <a href="{{url('/editorderstatus/edit/'.$order_item->id)}}" class="btn btn-info">
-                                                                    Edit
-                                                                </a>
-                                                            </td>
+                                        <td></td> --}}
+                                        <td><a href="{{ url('receipt/' . $order_item->id) }}">Click Here</a></td>
+                                        <td>${{ $order_item->total_price }}</td>
+                                        <td>{{ $order_item->created_at }}</td>
+                                            <td>{{ $order_item->address  }}</td>
+                                                <td>{{ $order_item->status }}</td>
+                                                <td>					
+                                                    <a href="{{url('/editorderstatus/edit/'.$order_item->id)}}" class="btn btn-info">
+                                                        Edit
+                                                    </a>
+                                                </td>
                             </tr>
                             @endforeach
                         </table>

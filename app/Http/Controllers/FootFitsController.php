@@ -119,7 +119,8 @@ class FootFitsController extends Controller
     function manageOrders()
     {
         $orders = Orders::all();
-        return view('/admin/manageOrders', compact('orders'));
+        $orderProducts = OrderProducts::all();
+        return view('/admin/manageOrders', compact('orders', 'orderProducts'));
 
     }
     function manageProducts()

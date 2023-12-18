@@ -48,7 +48,7 @@ class ProductsController extends Controller
 
         ]);
 
-        return redirect()->route('AllProducts');
+        return redirect()->route('AllProducts')->with('success', 'Product Added!');
     }
     public function Edit($id)
     {

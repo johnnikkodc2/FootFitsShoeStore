@@ -103,13 +103,15 @@
 
         </div>
 
-        <!-- Thank You Message -->
-        <br>
-        <p>Thank you for your purchase!</p>
+        @if (Auth::check() && Auth::user()->type === "customer")
+            <!-- Thank You Message -->
+            <br>
+            <p>Thank you for your purchase!</p>
 
-        <!-- Add a print or export button -->
-        <button onclick="printReceipt()" class="btn btn-primary">Print Receipt</button>
-        <button onclick="gohome()" class="btn btn-primary">View Orders</button>
+            <!-- Add a print or export button -->
+            <button onclick="printReceipt()" class="btn btn-primary">Print Receipt</button>
+            <button onclick="gohome()" class="btn btn-primary">View Orders</button>
+        @endif
     </div>
     <script>
     	function formatPrice(input) {

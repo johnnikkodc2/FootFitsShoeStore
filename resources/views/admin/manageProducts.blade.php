@@ -22,17 +22,17 @@
 		rel="stylesheet" type="text/css">
 
 		<!-- Include toastr CSS and JS files -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<style>
-    .horizontal-radio-group {
-        display: flex;
-    }
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+	<style>
+		.horizontal-radio-group {
+			display: flex;
+		}
 
-    .form-check {
-        margin-right: 10px; /* Adjust the spacing as needed */
-    }
-</style>
+		.form-check {
+			margin-right: 10px; /* Adjust the spacing as needed */
+		}
+	</style>
 
 </head>
 
@@ -47,6 +47,11 @@
 				<div class="col-lg-12">
 					<hr>
 					<h2 class="intro-text text-center">Product List</h2>
+					@if (session('success'))
+						<div id="successMessage" style="background-color:#28a745; padding: 15px 15px 15px 15px; border-radius:5px;">
+							{{session('success')}}
+						</div>
+					@endif
 					<div class="card">
 						<table class="table table-striped">
 							<thead>
@@ -90,7 +95,6 @@
 							<h2 class="intro-text text-center">Add Product</h2>
 							<form method="POST" action="{{ route('AllProducts') }}" enctype="multipart/form-data">
 								@csrf
-					
 								<div class="mb-3">
 									<label for="product_brand" class="form-label">Brand</label>
 									<select class="form-control" name="product_brand" id="product_brand" required>
@@ -113,7 +117,7 @@
 								</div>
 								<div class="mb-3">
 									<label for="product_price" class="form-label">Price</label>
-									<input type="number" class="form-control" name="product_price" id="product_price" oninput="formatPrice(this) required>
+									<input type="number" class="form-control" name="product_price" id="product_price" oninput="formatPrice(this)" required />
 								</div>
 								<div class="mb-3">
     <label for="product_size" class="form-label">Size</label>
@@ -290,6 +294,13 @@
             $(this)[0].reset();
         });
     });
+	</script>
+	<script>
+		var successMessage = document.getElementById('successMessage');
+		function hideSuccessMessage() {
+			successMessage.style.display = 'none';
+		}
+		setTimeout(hideSuccessMessage, 1500); 
 	</script>
 
 </body>

@@ -7,17 +7,20 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderProductsController;
 use App\Http\Controllers\ProductsController;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', [FootFitsController::class, 'index'])->name('index');
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
+    Route::get('/dashboard', function () {
+        if (Auth::check() && Auth::user()->type == "customer") {
+            return app(FootFitsController::class)->index();
+        } elseif (Auth::check() && Auth::user()->type == "admin") {
+            return app(FootFitsController::class)->admin();
+        }
+    })->name('dashboard');
 });
 Route::get('/', [FootFitsController::class, 'index'])->name('index');
 Route::get('/about', [FootFitsController::class, 'about'])->name('about');
