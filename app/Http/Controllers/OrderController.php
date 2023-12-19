@@ -93,5 +93,11 @@ class OrderController extends Controller
         return view('admin.editorderstatus', compact('order'));
     }
 
+    public function UpdateOrder (Request $request, $id) {
+        Orders::find($id)->update([
+            'status' => $request->product_status,
+        ]);
 
+        return Redirect()->route('manageOrders')->with('success', 'Order #' . $id . ' status Updated!');
+    }
 }

@@ -49,22 +49,23 @@
                           <tr>
                               <th>Order Number</th>
                               <th>Date</th>
-                              <th>Total</th>
-                    
-                              <th></th>
+                              <th>Total</th>  
+                              <th>Receipt</th>                         
+                              <th>Status</th>
                           </tr>
                       </thead>
                       <tbody>
                           @foreach ($orders as $order_item)
                           <tr>
                               <td>
-                                  <a href="{{ url('receipt/' . $order_item->id) }}">#{{ $order_item->id }}</a>
+                                  #{{ $order_item->id }}
                               </td>
                               <td>
                                   <p>{{ $order_item->created_at }}</p>
                               </td>
                               <td>&#8369; <span id="amount" class="amount">{{ $order_item->total_price }}</span></td>
-              
+                              <td><a href="{{ url('receipt/' . $order_item->id) }}" style="color:blue;">Click to View</a></td>
+                              <td>{{ $order_item->status }}</td>
                             
                           </tr>
                           @endforeach 
@@ -72,7 +73,7 @@
                   </table> 
                 </div>
 
-              <div class="list-group-item p-3 bg-white">
+              {{-- <div class="list-group-item p-3 bg-white">
                 <div class="row no-gutters">
                   <div class="col-12 col-md-9 pr-0 pr-md-3">
                   
@@ -112,7 +113,7 @@
                       </div>
                   @endforeach  
                 </div>
-              </div>
+              </div> --}}
             </div>
           </div>
           

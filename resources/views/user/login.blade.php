@@ -25,7 +25,7 @@
             </div>
         @endif
     </div>
-
+    <x-validation-errors class="mb-4" />
     <div class="container w-full py-5 h-100" >
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="col col-xl-10">
@@ -55,14 +55,24 @@
                       <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
     
                       <div class="form-outline mb-4">
-                        <input type="email" id="form2Example17" class="form-control form-control-lg" name="email" />
-                        <label class="form-label" for="name">{{ __('Email Address') }}</label>
-                      </div>
-    
-                      <div class="form-outline mb-4">
-                        <input type="password" id="form2Example27" class="form-control form-control-lg" name="password" />
+                        <input type="email" id="email" class="form-control form-control-lg {{ $errors->has('email') ? 'is-invalid' : '' }}" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                        <label class="form-label" for="name" >{{ __('Email Address') }}</label>
+                        @if ($errors->has('email'))
+                           <div class="invalid-feedback">
+                             {{ $errors->first('email') }}
+                           </div>
+                        @endif
+                       </div>
+                       
+                       <div class="form-outline mb-4">
+                        <input type="password" id="password" class="form-control form-control-lg {{ $errors->has('password') ? 'is-invalid' : '' }}" name="password" required autocomplete="current-password" />
                         <label class="form-label" for="password">{{ __('Password') }}</label>
-                      </div>
+                        @if ($errors->has('password'))
+                           <div class="invalid-feedback">
+                             {{ $errors->first('password') }}
+                           </div>
+                        @endif
+                       </div>
 
                       
         <div class="form-group">

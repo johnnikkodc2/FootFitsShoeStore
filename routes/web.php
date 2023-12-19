@@ -65,4 +65,5 @@ Route::post('/productDetails/checkout_cart', [CartController::class, 'Checkout']
 Route::post('/checkout/create_order', [OrderController::class, 'CreateOrder'])->name('create_order');
 Route::get('/myorders/delete_order/{id}', [OrderController::class, 'DeleteOrder']);
 Route::get('/editorderstatus/edit/{id}', [OrderController::class, 'EditOrder']);
+Route::post('editOrders/update/{id}', [OrderController::class, 'UpdateOrder']);
 

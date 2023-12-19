@@ -26,6 +26,11 @@
                 <div class="col-lg-12">
                     <hr>
                     <h2 class="intro-text text-center">Orders</h2>
+                    @if (session('success'))
+						<div id="successMessage" style="background-color:#28a745; padding: 15px 15px 15px 15px; border-radius:5px;">
+							{{session('success')}}
+						</div>
+					@endif
                     <hr>
                     <div class="table-responsive">
                         <table border="5px" class="table">
@@ -90,6 +95,13 @@
             }
         }
     </script>
+    <script>
+		var successMessage = document.getElementById('successMessage');
+		function hideSuccessMessage() {
+			successMessage.style.display = 'none';
+		}
+		setTimeout(hideSuccessMessage, 1500); 
+	</script>
 
 </body>
 

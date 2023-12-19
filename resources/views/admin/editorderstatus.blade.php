@@ -71,7 +71,7 @@
 								
 								<div class="mb-3">
 									<label for="product_category" class="form-label">Order Status		</label>
-									<select class="form-control" name="product_brand" id="product_brand" required>
+									<select class="form-control" name="product_status" id="product_brand" required>
 										<option value="Processing">Processing</option>
 										<option value="Out for delivery">Out for Delivery</option>
 										<option value="Shipped">Shipped</option>
